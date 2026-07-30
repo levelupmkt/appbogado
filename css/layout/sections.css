@@ -1,0 +1,274 @@
+/* ==========================================================================
+   LAYOUT · SECCIONES Y CONTENEDORES
+   --------------------------------------------------------------------------
+   Estructura genérica: anchos, paddings verticales fluidos y fondos
+   alternados. Los fondos siguen las reglas de 02-BRAND.md.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Contenedor
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--layout-container-width);
+  margin-inline: auto;
+  padding-inline: var(--layout-gutter);
+}
+
+.container--narrow {
+  max-width: var(--layout-container-narrow);
+}
+
+.container--text {
+  max-width: var(--layout-container-text);
+}
+
+.container--full {
+  max-width: none;
+}
+
+/* --------------------------------------------------------------------------
+   Sección
+   -------------------------------------------------------------------------- */
+.section {
+  padding-block: var(--section-padding-block);
+  scroll-margin-top: var(--header-height);
+  position: relative;
+}
+
+.section--compact {
+  padding-block: var(--section-padding-block-compact);
+}
+
+.section--flush-top {
+  padding-block-start: 0;
+}
+
+.section--flush-bottom {
+  padding-block-end: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Fondos de sección
+   Cada modificador aplica también su contexto de color heredado
+   (.on-brand / .on-accent reasignan texto y bordes en semantic.css).
+   -------------------------------------------------------------------------- */
+.section--canvas {
+  background-color: var(--surface-canvas);
+}
+
+/* Secciones estratégicas → neutral 500 */
+.section--strategic {
+  background-color: var(--surface-strategic);
+}
+
+/* Convenios institucionales → blue brand */
+.section--brand {
+  background-color: var(--surface-brand);
+  color: var(--text-on-brand);
+}
+
+/* Hero y footer → blue gradient */
+.section--gradient {
+  background-image: var(--surface-brand-gradient);
+  color: var(--text-on-brand);
+}
+
+.section--accent {
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+}
+
+
+
+
+/* --------------------------------------------------------------------------
+   Encabezado de sección
+   -------------------------------------------------------------------------- */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-head-gap);
+  max-width: var(--section-head-width);
+  margin-block-end: var(--section-head-margin);
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.section-head p {
+  color: var(--text-secondary);
+  font-size: var(--typography-lead-size);
+  line-height: var(--typography-lead-line-height);
+}
+
+/* --------------------------------------------------------------------------
+   Pie de sección (nota, aclaración legal)
+   -------------------------------------------------------------------------- */
+.section-note {
+  margin-block-start: var(--space-8);
+  font-size: var(--typography-small-size);
+  color: var(--text-muted);
+  text-align: center;
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Separador
+   -------------------------------------------------------------------------- */
+.divider {
+  border: none;
+  border-block-start: var(--border-width-thin) solid var(--border-subtle);
+  margin-block: var(--space-8);
+}
+
+/* ==========================================================================
+   LA PLATAFORMA
+   ========================================================================== */
+
+.platform-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: var(--layout-grid-gap);
+}
+
+/* Contenedor naranja izquierdo */
+.platform-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  border-radius: var(--radius-surface);
+}
+
+/* Título blanco */
+.platform-intro h2 {
+  color: var(--text-on-accent);
+}
+
+/* Párrafo blanco */
+.platform-intro p {
+  color: var(--text-on-accent);
+  font-size: var(--typography-lead-size);
+  line-height: var(--typography-lead-line-height);
+  max-width: var(--measure-base);
+}
+
+/* Botón separado del texto */
+.platform-intro .btn {
+  margin-block-start: var(--space-4);
+}
+
+/* Contenedor derecho */
+.platform-lists {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-grid-gap);
+}
+
+@media (max-width: 767px) {
+  .platform-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-intro {
+    padding: var(--space-6);
+  }
+}
+
+
+/* ==========================================================================
+   DOCUMENTOS IA PREMIUM
+   ========================================================================== */
+
+/* Los tres contenedores principales se distribuyen verticalmente */
+.documents-premium__layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-fluid-sm);
+}
+
+/* Primer contenedor: título y párrafo */
+.documents-premium__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--section-head-gap);
+  max-width: var(--section-head-width);
+}
+
+.documents-premium__head p {
+  color: var(--text-secondary);
+  font-size: var(--typography-lead-size);
+  line-height: var(--typography-lead-line-height);
+  max-width: var(--measure-wide);
+}
+
+/* Segundo contenedor: fondo naranja */
+.documents-premium__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: var(--layout-grid-gap);
+
+  padding: var(--space-8);
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  border-radius: var(--radius-surface-lg);
+  overflow: hidden;
+}
+
+/* Contenedor hijo de la imagen */
+.documents-premium__media {
+  position: relative;
+  align-self: stretch;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+}
+
+.documents-premium__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenedor hijo de los artículos */
+.documents-premium__tiers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   DOCUMENTOS IA PREMIUM · RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .documents-premium__panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--space-6);
+  }
+
+  .documents-premium__media {
+    aspect-ratio: var(--media-ratio-wide);
+  }
+
+  .documents-premium__media img {
+    min-height: 0;
+  }
+}

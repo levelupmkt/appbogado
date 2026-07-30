@@ -1,0 +1,147 @@
+/* ==========================================================================
+   TOKENS · CONTEXTOS DE COLOR
+   --------------------------------------------------------------------------
+   Un componente se escribe UNA vez y se adapta al fondo donde se coloque.
+   El contenedor reasigna los tokens; el componente no se entera.
+
+   POR QUÉ ESTE ARCHIVO EXISTE (y va después de components.css):
+   las custom properties se sustituyen en el elemento donde se DECLARAN.
+   Un token de nivel 3 declarado en :root —p. ej.
+       --card-bg: var(--surface-raised)
+   ya quedó resuelto a blanco en :root, así que reasignar --surface-raised
+   más abajo NO lo cambiaría. Por eso cada contexto redeclara también los
+   tokens de componente que dependen del fondo.
+
+   Contextos disponibles:
+     .on-brand / .on-gradient   fondo #000033 o degradado azul
+     .on-accent                 fondo naranja de marca
+     .on-canvas                 vuelve al contexto claro dentro de uno oscuro
+   ========================================================================== */
+
+/* ==========================================================================
+   CONTEXTO OSCURO · blue brand y blue gradient
+   ========================================================================== */
+.on-brand,
+.on-gradient,
+.card--brand,
+.cta-band--gradient,
+.site-footer {
+  /* --- Nivel 2 · semánticos --- */
+  --text-primary: var(--text-on-brand);
+  --text-secondary: var(--text-on-brand-secondary);
+  --text-muted: var(--text-on-brand-muted);
+  --link-color: var(--link-on-brand);
+  --link-color-hover: var(--link-on-brand-hover);
+  --border-subtle: var(--border-on-brand);
+  --border-strong: var(--border-on-brand-strong);
+  --surface-raised: var(--surface-on-brand-subtle);
+  --focus-ring-color: var(--focus-ring-color-on-brand);
+
+  /* --- Nivel 3 · componente --- */
+  --card-bg: var(--surface-on-brand-subtle);
+  --card-text: var(--text-on-brand);
+  --card-border: var(--border-on-brand);
+  --card-shadow-hover: none;
+
+  --feature-title-color: var(--text-on-brand);
+  --feature-text-color: var(--text-on-brand-secondary);
+
+  --button-secondary-text: var(--action-secondary-on-brand-text);
+  --button-secondary-border: var(--action-secondary-on-brand-border);
+  --button-secondary-text-hover: var(--action-secondary-on-brand-text-hover);
+  --button-secondary-border-hover: var(--action-secondary-on-brand-border-hover);
+
+  --icon-badge-bg: var(--surface-on-brand-raised);
+  --icon-filter: brightness(0) invert(1);
+
+  --pill-bg: transparent;
+  --pill-text: var(--text-on-brand-secondary);
+  --pill-border: var(--border-on-brand-strong);
+  --pill-bg-active: var(--color-neutral-100);
+  --pill-text-active: var(--color-blue-900);
+  --pill-border-active: var(--color-neutral-100);
+}
+
+/* ==========================================================================
+   CONTEXTO ACENTO · fondo naranja de marca
+   Sobre naranja, los botones blancos hacen hover a naranja claro.
+   ========================================================================== */
+.on-accent {
+  --text-primary: var(--text-on-accent);
+  --text-secondary: var(--text-on-accent-secondary);
+  --text-muted: var(--text-on-accent-secondary);
+  --text-accent: var(--color-neutral-100);
+  --link-color: var(--color-neutral-100);
+  --link-color-hover: var(--color-blue-900);
+  --border-subtle: var(--border-on-brand);
+  --border-strong: var(--border-on-brand-strong);
+  --focus-ring-color: var(--color-neutral-100);
+
+  /* Banda CTA sobre fondo naranja */
+--cta-band-bg: var(--surface-accent);
+--cta-band-text: var(--text-on-accent);
+
+  --card-bg: var(--surface-on-brand-subtle);
+  --card-text: var(--text-on-accent);
+  --card-border: var(--border-on-brand);
+
+  --feature-title-color: var(--text-on-accent);
+  --feature-text-color: var(--text-on-accent-secondary);
+
+  --eyebrow-color: var(--color-neutral-100);
+
+  /* El CTA sobre naranja es blanco, no naranja sobre naranja */
+  --button-primary-bg: var(--action-inverse-bg);
+  --button-primary-text: var(--action-inverse-text);
+  --button-primary-bg-hover: var(--action-inverse-bg-hover);
+  --button-primary-text-hover: var(--action-inverse-text-hover);
+  --button-primary-shadow: none;
+
+  --button-secondary-text: var(--color-neutral-100);
+  --button-secondary-border: var(--border-on-brand-strong);
+  --button-secondary-text-hover: var(--color-blue-900);
+  --button-secondary-border-hover: var(--color-neutral-100);
+
+  --icon-filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   CONTEXTO CLARO · restablece el modo claro dentro de una sección oscura
+   Úsalo en tarjetas o formularios blancos colocados sobre el degradado.
+   ========================================================================== */
+.on-canvas,
+.form-card {
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-900-a72);
+  --text-muted: var(--color-neutral-900-a56);
+  --text-accent: var(--color-orange-500);
+  --link-color: var(--color-neutral-900);
+  --link-color-hover: var(--color-orange-500);
+  --border-subtle: var(--color-neutral-500);
+  --border-strong: var(--color-blue-900-a16);
+  --surface-raised: var(--color-neutral-100);
+  --focus-ring-color: var(--color-orange-500);
+
+  --card-bg: var(--color-neutral-100);
+  --card-text: var(--color-neutral-900);
+  --card-border: var(--color-neutral-500);
+  --card-shadow-hover: var(--elevation-floating);
+
+  --feature-title-color: var(--color-neutral-900);
+  --feature-text-color: var(--color-neutral-900-a72);
+
+  --button-secondary-text: var(--color-blue-900);
+  --button-secondary-border: var(--color-blue-900-a16);
+  --button-secondary-text-hover: var(--color-orange-500);
+  --button-secondary-border-hover: var(--color-orange-500);
+
+  --icon-badge-bg: var(--color-orange-500-a10);
+  --icon-filter: none;
+
+  --pill-bg: var(--color-neutral-100);
+  --pill-text: var(--color-neutral-900-a72);
+  --pill-border: var(--color-neutral-500);
+  --pill-bg-active: var(--color-blue-900);
+  --pill-text-active: var(--color-neutral-100);
+  --pill-border-active: var(--color-blue-900);
+}

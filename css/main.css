@@ -1,0 +1,44 @@
+/* ==========================================================================
+   APPBOGADO · HOJA DE ESTILOS PRINCIPAL
+   --------------------------------------------------------------------------
+   Único archivo que se enlaza desde el HTML:
+     <link rel="stylesheet" href="css/main.css">          (raíz)
+     <link rel="stylesheet" href="../css/main.css">       (landings/)
+
+   El orden de importación es la cascada del sistema. No reordenar:
+
+     1. tokens/      NIVEL 1 primitivos → NIVEL 2 semánticos → NIVEL 3 componente
+     2. base/        fuentes, reset y tipografía
+     3. layout/      estructura de página
+     4. components/  piezas reutilizables
+     5. utilities/   ajustes puntuales (última palabra)
+
+   Fuente de verdad del diseño: 02-BRAND.md
+   Recursos (fuentes, logos, iconos, imágenes): /public
+   ========================================================================== */
+
+/* --- 1. TOKENS ----------------------------------------------------------- */
+@import url("tokens/primitives.css");
+@import url("tokens/semantic.css");
+@import url("tokens/components.css");
+@import url("tokens/contexts.css");
+
+/* --- 2. BASE ------------------------------------------------------------- */
+@import url("base/fonts.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+
+/* --- 3. LAYOUT ----------------------------------------------------------- */
+@import url("layout/sections.css");
+@import url("layout/grid.css");
+@import url("layout/navigation.css");
+
+/* --- 4. COMPONENTES ------------------------------------------------------ */
+@import url("components/buttons.css");
+@import url("components/hero.css");
+@import url("components/cards.css");
+@import url("components/features.css");
+@import url("components/forms.css");
+
+/* --- 5. UTILIDADES ------------------------------------------------------- */
+@import url("utilities/helpers.css");

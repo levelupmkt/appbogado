@@ -1,0 +1,385 @@
+/* ==========================================================================
+   LAYOUT · NAVEGACIÓN (header fijo) Y PIE DE PÁGINA
+   --------------------------------------------------------------------------
+   Header: flota transparente sobre el hero y pasa a degradado azul sólido
+   al hacer scroll. Enlaces blancos con hover naranja (02-BRAND.md).
+   Footer: fondo blue gradient (02-BRAND.md).
+   Menú móvil: panel a pantalla completa, accionado por js/ui.js.
+
+   Nota: al ser fijo, el header no ocupa espacio en el flujo. El hero ya
+   reserva ese alto con --hero-padding-block-start.
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--header-z);
+  background-color: var(--header-bg);
+  border-block-end: var(--border-width-thin) solid var(--header-border);
+  color: var(--color-neutral-100);
+  transition: box-shadow var(--transition-control),
+              border-color var(--transition-control),
+              background-color var(--transition-control);
+}
+
+.site-header.is-scrolled {
+  background-image: var(--header-bg-scrolled);
+  border-block-end-color: var(--header-border-scrolled);
+  box-shadow: var(--header-shadow-scrolled);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+}
+
+/* --------------------------------------------------------------------------
+   Logo
+   -------------------------------------------------------------------------- */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  /* Se mantiene visible por encima del panel móvil desplegado */
+  position: relative;
+  z-index: calc(var(--nav-panel-z) + 1);
+}
+
+.site-logo img {
+  height: var(--header-logo-height);
+  width: auto;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN PRINCIPAL
+   ========================================================================== */
+.main-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-gap);
+  list-style: none;
+}
+
+.main-nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--nav-link-padding-block);
+  font-family: var(--nav-link-font-family);
+  font-size: var(--nav-link-font-size);
+  font-weight: var(--nav-link-font-weight);
+  color: var(--nav-link-color);
+  transition: color var(--nav-link-transition);
+}
+
+/* Subrayado animado en naranja */
+.main-nav__link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 2px;
+  background-color: var(--nav-link-indicator);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--nav-link-transition);
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus-visible,
+.main-nav__link[aria-current="page"] {
+  color: var(--nav-link-color-hover);
+}
+
+.main-nav__link:hover::after,
+.main-nav__link:focus-visible::after,
+.main-nav__link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   Acciones del header
+   -------------------------------------------------------------------------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   Botón hamburguesa
+   -------------------------------------------------------------------------- */
+.nav-toggle {
+  display: none;
+  place-items: center;
+  width: var(--nav-toggle-size);
+  height: var(--nav-toggle-size);
+  margin-inline-end: calc(var(--space-2) * -1);
+  border-radius: var(--radius-xs);
+  position: relative;
+  z-index: calc(var(--nav-panel-z) + 1);
+}
+
+.nav-toggle__bars {
+  display: block;
+  position: relative;
+  width: var(--nav-toggle-bar-width);
+  height: var(--nav-toggle-bar-height);
+  background-color: var(--nav-toggle-bar-color);
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-control);
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  transition: transform var(--transition-control);
+}
+
+.nav-toggle__bars::before {
+  transform: translateY(calc(var(--nav-toggle-bar-gap) * -1));
+}
+
+.nav-toggle__bars::after {
+  transform: translateY(var(--nav-toggle-bar-gap));
+}
+
+/* Estado abierto: se convierte en una X blanca sobre el panel */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before {
+  background-color: var(--nav-panel-text);
+  transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after {
+  background-color: var(--nav-panel-text);
+  transform: rotate(-45deg);
+}
+
+/* ==========================================================================
+   RESPONSIVE · panel móvil bajo 1024px
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  /* El bloque nav+acciones se convierte en el panel deslizante */
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    z-index: var(--nav-panel-z);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--nav-panel-gap);
+    padding: var(--nav-panel-padding);
+    padding-block-start: calc(var(--header-height) + var(--space-8));
+    background-image: var(--nav-panel-bg);
+    color: var(--nav-panel-text);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition-surface),
+                visibility var(--transition-surface);
+    overflow-y: auto;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--nav-panel-gap);
+  }
+
+  .main-nav__link {
+    font-family: var(--font-display);
+    font-size: var(--nav-panel-link-size);
+    font-weight: var(--font-weight-bold);
+    color: var(--nav-panel-text);
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-block-start: var(--space-6);
+  }
+
+  .header-actions .btn {
+    width: 100%;
+  }
+
+  /* Bloquea el scroll del documento con el panel abierto */
+  body.has-nav-open {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    display: contents;
+  }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background-image: var(--footer-bg);
+  color: var(--footer-text);
+  padding-block: var(--footer-padding-block);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--footer-gap);
+  grid-template-columns: 1fr;
+  padding-block-end: var(--space-10);
+}
+
+@media (min-width: 640px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+.site-footer__brand img {
+  height: var(--footer-logo-height);
+  width: auto;
+}
+
+.site-footer__about {
+  margin-block-start: var(--space-4);
+  max-width: var(--measure-narrow);
+  font-size: var(--typography-small-size);
+  color: var(--footer-text);
+}
+
+.site-footer__title {
+  color: var(--footer-heading-color);
+  font-family: var(--font-display);
+  font-size: var(--typography-h5-size);
+  font-weight: var(--font-weight-bold);
+  margin-block-end: var(--space-4);
+}
+
+.site-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  font-size: var(--typography-small-size);
+}
+
+.site-footer__list a {
+  color: var(--footer-link-color);
+}
+
+.site-footer__list a:hover {
+  color: var(--footer-link-color-hover);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block-start: var(--space-6);
+  border-block-start: var(--border-width-thin) solid var(--footer-divider);
+  font-size: var(--typography-caption-size);
+}
+
+.site-footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.site-footer__badges span {
+  background-color: var(--footer-badge-bg);
+  color: var(--footer-badge-text);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--typography-caption-size);
+}
+
+/* --------------------------------------------------------------------------
+   Enlaces sociales / de contacto
+   -------------------------------------------------------------------------- */
+.site-footer__social {
+  display: flex;
+  gap: var(--space-3);
+  margin-block-start: var(--space-5);
+}
+
+.site-footer__social a {
+  display: grid;
+  place-items: center;
+  width: var(--size-tap-target);
+  height: var(--size-tap-target);
+  border-radius: var(--radius-circle);
+  background-color: var(--footer-badge-bg);
+  color: var(--footer-heading-color);
+  transition: background-color var(--transition-control),
+              color var(--transition-control);
+}
+
+.site-footer__social a:hover {
+  background-color: var(--color-orange-500);
+  color: var(--color-neutral-100);
+}
+
+.site-footer__social img,
+.site-footer__social svg {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Salto al contenido (teclado)
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--space-4);
+  inset-block-start: calc(var(--space-4) * -10);
+  z-index: var(--z-modal);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-orange-500);
+  color: var(--color-neutral-100);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  transition: inset-block-start var(--transition-control);
+}
+
+.skip-link:focus {
+  inset-block-start: var(--space-4);
+  color: var(--color-neutral-100);
+}

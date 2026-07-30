@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppBogado — Encuentra tu abogado verificado | Consulta hoy</title>
+<meta name="description" content="Encuentra abogados verificados con cédula activa en el Consejo de la Judicatura. Compara, agenda y paga tu consulta en línea. Rápido y seguro.">
+<meta property="og:title" content="AppBogado — Encuentra tu abogado verificado">
+<meta property="og:description" content="Abogados verificados, precio claro y cita en línea. Cuéntanos tu caso y te contactamos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#1E2A32; --naranja:#E57335; --naranja-d:#c85f26; --marron:#3E3835;
+    --crema:#FDF3EB; --gris:#E6E6E6; --gris-txt:#6b7076; --blanco:#fff; --ok:#2e9e6b;
+    --shadow:0 12px 34px rgba(30,42,50,.12); --shadow-lg:0 26px 64px rgba(30,42,50,.22);
+    --rp:999px; --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--tinta);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--blanco)}
+  h1,h2,h3,.wm{font-family:"Poppins",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;width:100%}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:none;cursor:pointer;font-family:"Poppins";font-weight:700;font-size:1rem;padding:1rem 1.5rem;border-radius:var(--rp);transition:.2s transform,.2s box-shadow,.2s background;width:100%}
+  .btn-primary{background:var(--naranja);color:#fff;box-shadow:0 10px 24px rgba(229,115,53,.32)}
+  .btn-primary:hover{background:var(--naranja-d);transform:translateY(-2px)}
+  .iso{width:30px;height:30px;flex:0 0 auto}
+  .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--naranja)}
+
+  .topbar{background:var(--blanco);border-bottom:1px solid var(--gris)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:.5rem}
+  .logo .wm{font-weight:800;font-size:1.18rem;color:var(--tinta)}
+  .trust-mini{font-size:.8rem;color:var(--gris-txt);display:flex;align-items:center;gap:.4rem}
+  .trust-mini .star{color:#f5b301}
+  @media(max-width:640px){.trust-mini{display:none}}
+
+  .hero{background:
+     radial-gradient(900px 460px at 100% -10%, rgba(229,115,53,.18), transparent 60%),
+     linear-gradient(158deg,var(--marron),var(--tinta) 62%);
+     color:#fff;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:56px 0 64px}
+  .hero h1{font-size:2.9rem;line-height:1.06;font-weight:800;letter-spacing:-.02em;margin:.6rem 0 1rem}
+  .hero h1 .hl{color:var(--naranja)}
+  .hero .lead{font-size:1.1rem;color:#d9e0e5;max-width:36ch;margin-bottom:1.4rem}
+  .ticks{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem}
+  .ticks li{display:flex;gap:.6rem;align-items:flex-start;font-size:1rem;color:#eef2f4}
+  .ticks .c{color:var(--naranja);font-weight:800;flex:0 0 auto}
+  .hero-stats{display:flex;gap:1.8rem;flex-wrap:wrap}
+  .hstat .n{font-family:"Poppins";font-weight:800;font-size:1.4rem;color:var(--naranja)}
+  .hstat .l{font-size:.78rem;color:#b9c3ca}
+
+  .form-card{background:#fff;color:var(--tinta);border-radius:20px;box-shadow:var(--shadow-lg);padding:26px 24px}
+  .form-card h2{font-size:1.4rem;font-weight:700;line-height:1.15}
+  .form-card .sub{font-size:.9rem;color:var(--gris-txt);margin:.35rem 0 1.1rem}
+  .field{margin-bottom:.8rem}
+  .field label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.3rem;color:#3d474e}
+  .field input,.field select,.field textarea{width:100%;padding:.8rem .9rem;border:1.5px solid var(--gris);border-radius:12px;font-family:inherit;font-size:.95rem;color:var(--tinta);background:#fff;transition:.15s border-color,.15s box-shadow}
+  .field textarea{resize:vertical;min-height:64px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(229,115,53,.15)}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .field.two>div{min-width:0}
+  .consent{display:flex;gap:.5rem;align-items:flex-start;font-size:.76rem;color:var(--gris-txt);margin:.5rem 0 1rem}
+  .consent input{margin-top:3px}
+  .form-note{font-size:.74rem;color:var(--gris-txt);text-align:center;margin-top:.7rem}
+  .form-note b{color:var(--tinta)}
+  .badge-secure{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;color:var(--ok);font-weight:600;margin-top:.4rem}
+  .err{color:#c0392b;font-size:.74rem;margin-top:.2rem;display:none}
+  .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#c0392b}
+  .field.invalid .err{display:block}
+
+  .success{display:none;text-align:center;padding:14px 4px}
+  .success .ok-ic{width:66px;height:66px;border-radius:50%;background:rgba(46,158,107,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .success h2{font-size:1.4rem;margin-bottom:.4rem}
+  .success p{color:var(--gris-txt);font-size:.95rem;margin-bottom:1rem}
+
+  .trust{background:var(--crema);padding:22px 0}
+  .trust .row{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;font-size:.86rem;color:var(--gris-txt);font-weight:600}
+  .trust .row b{color:var(--tinta)}
+  .trust .dot{width:5px;height:5px;border-radius:50%;background:var(--naranja)}
+
+  .sec{padding:60px 0}
+  .sec-head{text-align:center;max-width:600px;margin:0 auto 36px}
+  .sec-head h2{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin:.4rem 0 .5rem}
+  .sec-head p{color:var(--gris-txt)}
+  .benes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bene{background:#fff;border:1px solid var(--gris);border-radius:16px;padding:24px}
+  .bene .ico{width:46px;height:46px;border-radius:12px;background:var(--crema);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .bene h3{font-size:1.05rem;margin-bottom:.35rem}
+  .bene p{font-size:.9rem;color:var(--gris-txt)}
+
+  /* materias populares */
+  .areas{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  .area-pill{background:#fff;border:1px solid var(--gris);border-radius:var(--rp);padding:.55rem 1.1rem;font-size:.9rem;font-weight:600;color:var(--tinta);transition:.15s}
+  .area-pill:hover{border-color:var(--naranja);color:var(--naranja)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+  .step{position:relative;padding:22px;background:var(--crema);border-radius:16px}
+  .step .n{counter-increment:s;font-family:"Poppins";font-weight:800;font-size:2rem;color:var(--naranja);line-height:1}
+  .step .n::before{content:counter(s)}
+  .step h3{font-size:1rem;margin:.4rem 0 .3rem}
+  .step p{font-size:.88rem;color:var(--gris-txt)}
+
+  .quote-band{background:var(--tinta);color:#fff;padding:56px 0}
+  .quote-band .q{max-width:720px;margin:0 auto;text-align:center}
+  .quote-band blockquote{font-family:"Poppins";font-weight:600;font-size:1.55rem;line-height:1.35;letter-spacing:-.01em}
+  .quote-band .who{margin-top:16px;color:#b9c3ca;font-size:.9rem}
+  .quote-band .who b{color:#fff}
+
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--gris);border-radius:14px;padding:0 18px;margin-bottom:10px;background:#fff}
+  details summary{cursor:pointer;list-style:none;padding:16px 0;font-family:"Poppins";font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--naranja);font-size:1.4rem;font-weight:700;flex:0 0 auto}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 16px;color:var(--gris-txt);font-size:.93rem}
+
+  .final{background:linear-gradient(120deg,var(--naranja),#f2934f);color:#fff;text-align:center;padding:60px 22px}
+  .final h2{font-size:2.1rem;font-weight:800;margin-bottom:.5rem}
+  .final p{opacity:.96;max-width:44ch;margin:0 auto 1.4rem}
+  .final .btn{display:inline-flex;width:auto;background:#fff;color:var(--naranja);padding:1rem 2rem}
+  .final .btn:hover{background:#fff8f3;transform:translateY(-2px)}
+
+  footer{background:var(--tinta);color:#8f9aa1;padding:26px 0;font-size:.82rem}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+  footer .wm{color:#fff;font-size:1rem}
+  .foot-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+  .foot-badges span{background:rgba(255,255,255,.08);padding:.25rem .6rem;border-radius:var(--rp);font-size:.72rem}
+
+  .mock-note{background:#fff8f3;border:1px dashed var(--naranja);color:#8a4a1e;font-size:.8rem;text-align:center;padding:.55rem;border-radius:9px;margin:12px auto 0;max-width:var(--maxw)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:.55s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;padding:44px 0 52px}
+    .hero h1{font-size:2.35rem}
+    .benes,.steps{grid-template-columns:1fr}
+    .quote-band blockquote{font-size:1.3rem}
+  }
+  @media(max-width:560px){.sec{padding:46px 0}.field.two{grid-template-columns:1fr}.hero .watermark{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="iso" viewBox="0 0 100 100">
+   <path d="M50 4C29 4 12 21 12 42c0 26 30 50 36 54 1 .7 3 .7 4 0 6-4 36-28 36-54C88 21 71 4 50 4Z" fill="currentColor"/>
+   <circle cx="50" cy="42" r="26" fill="#fff"/>
+   <g fill="currentColor" transform="rotate(38 50 42)">
+     <rect x="36" y="30" width="20" height="12" rx="2.5"/><rect x="41" y="41" width="4.5" height="20" rx="2"/>
+     <rect x="33" y="34" width="4" height="4.5" rx="1.2"/><rect x="55" y="34" width="4" height="4.5" rx="1.2"/>
+   </g>
+ </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap row">
+    <div class="logo"><svg class="iso" style="color:var(--tinta)"><use href="#iso"/></svg><span class="wm">AppBogadoEC</span></div>
+    <div class="trust-mini"><span class="star">★</span> <b>4.9/5</b> · Abogados verificados con cédula activa CJ</div>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Asesoría legal · Ecuador</span>
+      <h1>Encuentra tu <span class="hl">abogado verificado</span></h1>
+      <p class="lead">Compara profesionales con cédula activa, agenda tu consulta y paga en línea — sin vueltas ni sorpresas.</p>
+      <ul class="ticks">
+        <li><span class="c">✓</span> Solo abogados verificados en el Consejo de la Judicatura</li>
+        <li><span class="c">✓</span> Precio claro por consulta, sin costos ocultos</li>
+        <li><span class="c">✓</span> Cita por videollamada, chat, llamada o presencial</li>
+        <li><span class="c">✓</span> Tus datos protegidos conforme a la LOPDP</li>
+      </ul>
+      <div class="hero-stats">
+        <div class="hstat"><div class="n">Gratis</div><div class="l">registrarte y buscar</div></div>
+        <div class="hstat"><div class="n">Minutos</div><div class="l">para agendar tu cita</div></div>
+        <div class="hstat"><div class="n">4.9/5</div><div class="l">valoración de usuarios</div></div>
+      </div>
+    </div>
+
+    <div class="form-card" id="form-box" data-ab-formbox>
+      <form id="lead-form" data-ab-form="cliente" novalidate>
+        <h2>Cuéntanos tu caso</h2>
+        <p class="sub">Te contactamos con un abogado verificado en tu área. Es gratis.</p>
+
+        <div class="field" id="f-nombre">
+          <label for="nombre">Tu nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej. Juan Pérez" required>
+          <div class="err">Ingresa tu nombre.</div>
+        </div>
+
+        <div class="field two">
+          <div id="f-tel">
+            <label for="tel">WhatsApp</label>
+            <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="numeric" placeholder="09XXXXXXXX" required>
+            <div class="err">Ingresa un número válido.</div>
+          </div>
+          <div id="f-prov">
+            <label for="provincia">Ciudad / Provincia</label>
+            <select id="provincia" name="provincia" required>
+              <option value="" selected disabled>Selecciona</option>
+              <option>Guayas</option><option>Pichincha</option><option>Azuay</option><option>El Oro</option>
+              <option>Manabí</option><option>Tungurahua</option><option>Loja</option><option>Los Ríos</option>
+              <option>Imbabura</option><option>Otra</option>
+            </select>
+            <div class="err">Selecciona tu provincia.</div>
+          </div>
+        </div>
+
+        <div class="field" id="f-area">
+          <label for="area">¿Qué tipo de ayuda necesitas?</label>
+          <select id="area" name="area" required>
+            <option value="" selected disabled>Selecciona el área</option>
+            <option>Penal (denuncias, defensa)</option>
+            <option>Laboral (despido, liquidación)</option>
+            <option>Familia (divorcio, alimentos)</option>
+            <option>Civil (contratos, deudas)</option>
+            <option>Tránsito (accidentes, multas)</option>
+            <option>Corporativo (empresa, RUC)</option>
+            <option>No estoy seguro / otra</option>
+          </select>
+          <div class="err">Selecciona un área.</div>
+        </div>
+
+        <div class="field">
+          <label for="detalle">Cuéntanos brevemente (opcional)</label>
+          <textarea id="detalle" name="detalle" placeholder="En pocas palabras, ¿qué necesitas resolver?"></textarea>
+        </div>
+
+        <label class="consent"><input type="checkbox" id="consent" required>
+          Acepto los Términos y la Política de Privacidad, y el tratamiento de mis datos conforme a la LOPDP.</label>
+
+        <button type="submit" class="btn btn-primary">Buscar mi abogado →</button>
+        <div class="badge-secure">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3Z"/></svg>
+          Consulta confidencial · datos protegidos (LOPDP)
+        </div>
+        <p class="form-note">¿Prefieres buscar tú mismo? <b>Explora el directorio</b></p>
+      </form>
+
+      <div class="success" id="success" data-ab-success>
+        <div class="ok-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2>¡Recibimos tu solicitud!</h2>
+        <p>Te contactaremos por WhatsApp con abogados verificados de tu área. Mientras tanto, puedes explorar sus perfiles.</p>
+        <a href="#" class="btn btn-primary" style="display:inline-flex;width:auto;padding:.9rem 1.6rem">Ver abogados</a>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="mock-note">Landing de campaña · público CLIENTES · Mockup de propuesta · el formulario es una demostración; conectar al backend de leads y al píxel de conversión.</p>
+
+<div class="trust">
+  <div class="wrap row">
+    <span><b>Verificados</b> con cédula activa CJ</span><span class="dot"></span>
+    <span><b>Precio claro</b> por consulta</span><span class="dot"></span>
+    <span><b>Pago seguro</b> Datafast · Payphone</span><span class="dot"></span>
+    <span><b>Confidencial</b> (LOPDP)</span>
+  </div>
+</div>
+
+<!-- MATERIAS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Para lo que necesites</span>
+      <h2>Abogados para cada situación</h2>
+      <p>Elige el área y te conectamos con profesionales verificados cerca de ti.</p>
+    </div>
+    <div class="areas reveal">
+      <a href="#top" class="area-pill">Penal</a><a href="#top" class="area-pill">Laboral</a>
+      <a href="#top" class="area-pill">Familia · Divorcios</a><a href="#top" class="area-pill">Alimentos</a>
+      <a href="#top" class="area-pill">Tránsito</a><a href="#top" class="area-pill">Civil · Contratos</a>
+      <a href="#top" class="area-pill">Deudas</a><a href="#top" class="area-pill">Corporativo</a>
+      <a href="#top" class="area-pill">Herencias</a>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ CONFIAR -->
+<section class="sec" style="background:var(--crema)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Por qué AppBogado</span>
+      <h2>Contratar un abogado, sin la incertidumbre</h2>
+    </div>
+    <div class="benes reveal">
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E57335" stroke-width="2"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Verificados de verdad</h3>
+        <p>Validamos la cédula profesional activa en el Consejo de la Judicatura. Nada de perfiles falsos.</p>
+      </div>
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E2A32" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Precio claro</h3>
+        <p>Ves la tarifa de la consulta antes de agendar. Sin sorpresas ni cobros ocultos.</p>
+      </div>
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E57335" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Como te quede cómodo</h3>
+        <p>Videollamada, chat, llamada o presencial. Tú eliges el canal y el horario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Así de fácil</span>
+      <h2>Tu consulta en tres pasos</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="n"></div><h3>Cuéntanos tu caso</h3><p>Completa el formulario o busca por área en el directorio.</p></div>
+      <div class="step"><div class="n"></div><h3>Elige tu abogado</h3><p>Compara perfiles verificados, valoraciones y precio de consulta.</p></div>
+      <div class="step"><div class="n"></div><h3>Agenda y resuelve</h3><p>Reserva y paga en línea; recibe tu asesoría por el canal que prefieras.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="quote-band reveal">
+  <div class="wrap q">
+    <svg class="iso" style="width:40px;height:40px;color:#fff;opacity:.85;margin-bottom:14px"><use href="#iso"/></svg>
+    <blockquote>“Necesitaba un abogado laboral y no sabía por dónde empezar. En minutos tenía tres opciones verificadas y una cita el mismo día.”</blockquote>
+    <div class="who"><b>Usuaria de la plataforma</b> · testimonio ilustrativo</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de tu consulta</h2></div>
+    <div class="faq reveal">
+      <details open><summary>¿Cuánto cuesta usar AppBogado?</summary><p>Registrarte y buscar abogados es gratis. Solo pagas la consulta del abogado que elijas, a la tarifa que aparece en su perfil — sin comisiones ocultas para ti.</p></details>
+      <details><summary>¿Los abogados son de confianza?</summary><p>Todos los abogados con la insignia de verificado tienen su cédula profesional activa en el Consejo de la Judicatura. Puedes ver sus valoraciones y su área de práctica antes de agendar.</p></details>
+      <details><summary>¿Puedo consultar sin salir de casa?</summary><p>Sí. Puedes agendar por videollamada, chat o llamada. Si prefieres, también hay atención presencial según el abogado.</p></details>
+      <details><summary>¿Es confidencial lo que cuento?</summary><p>Sí. Tu información se trata conforme a la LOPDP y solo se comparte con el abogado que atienda tu caso.</p></details>
+      <details><summary>¿Qué pasa después de enviar el formulario?</summary><p>Te contactamos por WhatsApp con abogados verificados de tu área para que elijas y agendes tu consulta.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Resuelve tu caso hoy</h2>
+  <p>Encuentra al abogado verificado que necesitas, sin perder tiempo.</p>
+  <a href="#top" class="btn">Buscar mi abogado →</a>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div class="logo"><svg class="iso" style="color:#fff"><use href="#iso"/></svg><span class="wm">AppBogadoEC</span></div>
+    <div class="foot-badges"><span>Verificados CJ</span><span>Pago seguro</span><span>LOPDP</span><span>app.appbogadoec.com</span></div>
+    <span>© 2026 CODEPLUS S.A.</span>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const utm={};
+  new URLSearchParams(location.search).forEach((v,k)=>{ if(k.startsWith('utm_')||k==='fbclid') utm[k]=v; });
+
+  const form=document.getElementById('lead-form');
+  function mark(id,ok){ document.getElementById(id).classList.toggle('invalid',!ok); return ok; }
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('nombre').value.trim();
+    const tel=document.getElementById('tel').value.trim();
+    const prov=document.getElementById('provincia').value;
+    const area=document.getElementById('area').value;
+    const detalle=document.getElementById('detalle').value.trim();
+    const cons=document.getElementById('consent').checked;
+    let ok=true;
+    ok&=mark('f-nombre',n.length>=3);
+    ok&=mark('f-tel',tel.replace(/\D/g,'').length>=9);
+    ok&=mark('f-prov',!!prov);
+    ok&=mark('f-area',!!area);
+    if(!cons) ok=false;
+    if(!ok) return;
+    const payload={tipo:'cliente',nombre:n,tel,provincia:prov,area,detalle,...utm};
+    // TODO backend: POST /api/leads  +  window.fbq && fbq('track','Lead',{content_category:'cliente'});
+    console.log('LEAD CLIENTE →',payload);
+    form.style.display='none';
+    document.getElementById('success').style.display='block';
+    document.getElementById('form-box').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('tel').addEventListener('input',e=>{ e.target.value=e.target.value.replace(/[^\d]/g,''); });
+</script>
+</body>
+</html>

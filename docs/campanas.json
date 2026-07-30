@@ -1,0 +1,57 @@
+{
+  "proyecto": "AppBogado — Landings & Campañas",
+  "empresa": "CODEPLUS S.A.",
+  "dominio": "app.appbogadoec.com",
+  "endpoint_leads": "/api/leads",
+  "nota": "Las 3 campañas comparten un solo endpoint. El campo 'tipo' del payload segmenta el lead. Configurar en Meta una campaña o conjunto de anuncios por público, cada uno apuntando a su landing con sus UTMs.",
+  "landings": [
+    {
+      "archivo": "landings/index-institucional.html",
+      "rol": "Landing institucional (conocer el producto a fondo)",
+      "publico": "tráfico orgánico, referidos, quien investiga la plataforma",
+      "trafico": "orgánico / directo — NO quemar en pauta pagada single-objective",
+      "conversion": "navegación a registro / planes"
+    },
+    {
+      "archivo": "landings/campana-abogados.html",
+      "rol": "Captar abogados (registro/prueba gratis)",
+      "publico": "abogados en libre ejercicio",
+      "payload_tipo": "abogado",
+      "conversion_meta": "Lead (content_category: abogado)",
+      "campos": ["nombre","email","tel","provincia","area"],
+      "utm_sugerido": "?utm_source=meta&utm_medium=paid_social&utm_campaign=abogados_captacion&utm_content=<creativo>"
+    },
+    {
+      "archivo": "landings/campana-clientes.html",
+      "rol": "Captar clientes (buscar abogado)",
+      "publico": "ciudadanos con una necesidad legal",
+      "payload_tipo": "cliente",
+      "conversion_meta": "Lead (content_category: cliente)",
+      "campos": ["nombre","tel","provincia","area","detalle"],
+      "utm_sugerido": "?utm_source=meta&utm_medium=paid_social&utm_campaign=clientes_captacion&utm_content=<creativo>"
+    },
+    {
+      "archivo": "landings/campana-convenios.html",
+      "rol": "Convenios institucionales (colegios de abogados)",
+      "publico": "directivas de colegios provinciales / federación",
+      "payload_tipo": "convenio",
+      "conversion_meta": "Lead (content_category: convenio)",
+      "campos": ["nombre","colegio","email","tel","provincia"],
+      "utm_sugerido": "?utm_source=meta&utm_medium=paid_social&utm_campaign=convenios_colegios&utm_content=<creativo>"
+    }
+  ],
+  "payload_ejemplo": {
+    "tipo": "abogado",
+    "nombre": "María Castro",
+    "email": "maria@correo.com",
+    "tel": "0991234567",
+    "provincia": "Guayas",
+    "area": "Laboral",
+    "utm_source": "meta",
+    "utm_campaign": "abogados_captacion",
+    "fbclid": "…",
+    "landing_path": "/landings/campana-abogados.html",
+    "referrer": null,
+    "ts": "2026-07-14T06:20:00.000Z"
+  }
+}

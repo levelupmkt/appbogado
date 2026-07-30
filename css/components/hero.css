@@ -1,0 +1,192 @@
+/* ==========================================================================
+   COMPONENTE · HERO
+   --------------------------------------------------------------------------
+   Regla 02-BRAND.md: fondo blue gradient. Admite imagen de fondo
+   (/public/images/background-hero.webp) con velo para asegurar contraste.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  background-image: var(--hero-bg);
+  color: var(--hero-text);
+  --eyebrow-color: var(--text-on-brand);
+  padding-block-start: var(--hero-padding-block-start);
+  padding-block-end: var(--hero-padding-block-end);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Imagen de fondo opcional
+   Se apoya SOBRE el degradado de marca con opacidad baja: aporta textura
+   sin comprometer el contraste del texto blanco.
+   -------------------------------------------------------------------------- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: var(--hero-bg-image-opacity);
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Composición
+   -------------------------------------------------------------------------- */
+.hero__grid {
+  display: grid;
+  gap: var(--hero-gap);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.hero__title {
+  font-size: var(--hero-title-size);
+  font-weight: var(--typography-display-weight);
+  line-height: var(--typography-display-line-height);
+  letter-spacing: var(--typography-display-tracking);
+  color: var(--hero-text);
+}
+
+.hero__title .highlight {
+  color: var(--hero-title-highlight);
+}
+
+.hero__lead {
+  font-size: var(--hero-lead-size);
+  line-height: var(--typography-lead-line-height);
+  color: var(--hero-lead-color);
+  max-width: var(--hero-lead-measure);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Medio del hero
+   Por defecto va sin marco: la imagen entregada es un recorte con fondo
+   transparente. .hero__media--framed es para fotografías rectangulares.
+   -------------------------------------------------------------------------- */
+.hero__media {
+  position: relative;
+}
+
+.hero__media img {
+  width: 100%;
+  height: auto;
+}
+
+.hero__media--framed {
+  border-radius: var(--hero-media-radius);
+  overflow: hidden;
+  box-shadow: var(--hero-media-shadow);
+}
+
+.hero__media--framed img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Estadísticas del hero
+   -------------------------------------------------------------------------- */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-block-start: var(--space-4);
+  width: 100%;
+  max-width: 520px;
+}
+
+.hero__stats .stat__value {
+  color: var(--hero-stat-value-color);
+}
+
+.hero__stats .stat__label {
+  color: var(--hero-stat-label-color);
+}
+
+/* --------------------------------------------------------------------------
+   Variante compacta (landings de campaña)
+   -------------------------------------------------------------------------- */
+.hero--compact {
+  --hero-padding-block-start: var(--space-fluid-md);
+  --hero-padding-block-end: var(--space-fluid-md);
+}
+
+.hero--center .hero__content {
+  align-items: center;
+  text-align: center;
+}
+
+.hero--center .hero__lead {
+  margin-inline: auto;
+}
+
+@media (max-width: 639px) {
+  .hero__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__stats {
+    gap: var(--space-5);
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Etiqueta flotante sobre el medio
+   -------------------------------------------------------------------------- */
+.hero__chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--surface-canvas);
+  color: var(--color-neutral-900);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-overlay);
+  font-size: var(--typography-caption-size);
+  max-width: 260px;
+}
+
+.hero__chip--start {
+  inset-block-start: var(--space-5);
+  inset-inline-start: var(--space-5);
+}
+
+.hero__chip--end {
+  inset-block-end: var(--space-5);
+  inset-inline-end: var(--space-5);
+}
+
+@media (max-width: 639px) {
+  .hero__chip {
+    position: static;
+    max-width: none;
+    margin-block-start: var(--space-4);
+  }
+}

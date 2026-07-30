@@ -1,0 +1,203 @@
+/* ==========================================================================
+   TOKENS · NIVEL 1 — PRIMITIVOS
+   --------------------------------------------------------------------------
+   Valores crudos del sistema. No describen uso, solo el valor en sí.
+   REGLA: ningún componente consume esta capa directamente.
+          Los primitivos solo los consume tokens/semantic.css.
+   Fuente de verdad: 02-BRAND.md
+   ========================================================================== */
+
+:root {
+  /* ----------------------------------------------------------------------
+     COLOR · Marca (primarios)
+     ---------------------------------------------------------------------- */
+  --color-blue-900: #000033;  /* blue brand   — color principal de la marca */
+  --color-blue-700: #000058;  /* inicio del degradado de marca             */
+
+  /* ----------------------------------------------------------------------
+     COLOR · Acento (secundarios)
+     ---------------------------------------------------------------------- */
+  --color-orange-500: #FF4C12; /* orange brand — CTA y enlaces sobre oscuro */
+  --color-orange-200: #f56636; /* orange light — hover sobre neutral 100    */
+
+  /* ----------------------------------------------------------------------
+     COLOR · Neutrales
+     ---------------------------------------------------------------------- */
+  --color-neutral-100: #FFFFFF; /* neutral 100 — canvas, textos sobre oscuro */
+  --color-neutral-500: #E8E8E8; /* neutral 500 — secciones estratégicas      */
+  --color-neutral-900: #000000; /* neutral 900 — textos sobre blanco         */
+
+  /* ----------------------------------------------------------------------
+     COLOR · Alfas derivadas
+     Extensiones necesarias para jerarquía de texto, bordes y overlays.
+     Todas derivan de los colores de marca: no introducen tintes nuevos.
+     ---------------------------------------------------------------------- */
+  --color-neutral-900-a72: rgba(0, 0, 0, 0.72);
+  --color-neutral-900-a56: rgba(0, 0, 0, 0.56);
+  --color-neutral-900-a12: rgba(0, 0, 0, 0.12);
+  --color-neutral-900-a08: rgba(0, 0, 0, 0.08);
+
+  --color-neutral-100-a80: rgba(255, 255, 255, 0.80);
+  --color-neutral-100-a64: rgba(255, 255, 255, 0.64);
+  --color-neutral-100-a24: rgba(255, 255, 255, 0.24);
+  --color-neutral-100-a12: rgba(255, 255, 255, 0.12);
+  --color-neutral-100-a08: rgba(255, 255, 255, 0.08);
+
+  --color-blue-900-a90: rgba(0, 0, 51, 0.90);
+  --color-blue-900-a16: rgba(0, 0, 51, 0.16);
+  --color-blue-900-a10: rgba(0, 0, 51, 0.10);
+  --color-blue-900-a06: rgba(0, 0, 51, 0.06);
+
+  --color-orange-500-a32: rgba(255, 76, 18, 0.32);
+  --color-orange-500-a16: rgba(255, 76, 18, 0.16);
+  --color-orange-500-a10: rgba(255, 76, 18, 0.10);
+
+  /* ----------------------------------------------------------------------
+     COLOR · Estado del sistema (fuera de paleta de marca, uso funcional)
+     ---------------------------------------------------------------------- */
+  --color-success-500: #1F8A4C;
+  --color-error-500: #C0362B;
+
+  /* ----------------------------------------------------------------------
+     GRADIENTES
+     ---------------------------------------------------------------------- */
+  --gradient-blue: linear-gradient(-180deg, var(--color-blue-700) 1%, var(--color-blue-900) 70%);
+  --gradient-blue-vertical: linear-gradient(180deg, var(--color-blue-700) 0%, var(--color-blue-900) 70%);
+  --gradient-scrim-dark: linear-gradient(180deg, rgba(0, 0, 51, 0.10) 0%, rgba(0, 0, 51, 0.78) 100%);
+
+  /* ----------------------------------------------------------------------
+     TIPOGRAFÍA · Familias
+     Archivos locales en /public/fonts (ver base/fonts.css)
+     ---------------------------------------------------------------------- */
+  --font-family-display: "Britanica", "Urbanist", system-ui, -apple-system, sans-serif;
+  --font-family-body: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* TIPOGRAFÍA · Pesos disponibles en los archivos entregados */
+  --font-weight-regular: 400; /* Urbanist-Regular       */
+  --font-weight-bold: 700;    /* Britanica-Bold Regular  */
+  --font-weight-black: 900;   /* Britanica-Black Regular */
+
+  /* TIPOGRAFÍA · Escala fluida (mobile → desktop, sin media queries) */
+  --font-size-100: 0.75rem;                                        /* 12px       */
+  --font-size-200: 0.8125rem;                                      /* 13px       */
+  --font-size-300: 0.875rem;                                       /* 14px       */
+  --font-size-400: 1rem;                                           /* 16px       */
+  --font-size-500: clamp(1.0625rem, 1.02rem + 0.23vw, 1.1875rem);  /* 17 → 19px  */
+  --font-size-600: clamp(1.25rem, 1.16rem + 0.45vw, 1.5rem);       /* 20 → 24px  */
+  --font-size-700: clamp(1.5rem, 1.34rem + 0.80vw, 1.9375rem);     /* 24 → 31px  */
+  --font-size-800: clamp(1.875rem, 1.59rem + 1.43vw, 2.6875rem);   /* 30 → 43px  */
+  --font-size-900: clamp(2.25rem, 1.75rem + 2.50vw, 3.625rem);     /* 36 → 58px  */
+  --font-size-1000: clamp(2.625rem, 1.86rem + 3.82vw, 4.75rem);    /* 42 → 76px  */
+
+  /* TIPOGRAFÍA · Interlineado */
+  --line-height-tight: 1.05;
+  --line-height-snug: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.65;
+
+  /* TIPOGRAFÍA · Tracking */
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.015em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.08em;
+  --letter-spacing-widest: 0.16em;
+
+  /* TIPOGRAFÍA · Medida de línea */
+  --measure-narrow: 34ch;
+  --measure-base: 46ch;
+  --measure-wide: 62ch;
+
+  /* ----------------------------------------------------------------------
+     ESPACIADO · Escala base 4px
+     ---------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ESPACIADO · Fluido (crece con el viewport) */
+  --space-fluid-sm: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --space-fluid-md: clamp(2.5rem, 1.9rem + 3vw, 4.5rem);
+  --space-fluid-lg: clamp(3.5rem, 2.4rem + 5.5vw, 7rem);
+
+  /* ----------------------------------------------------------------------
+     RADIOS
+     ---------------------------------------------------------------------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 8px;
+  --radius-circle: 50%;
+
+  /* ----------------------------------------------------------------------
+     BORDES
+     ---------------------------------------------------------------------- */
+  --border-width-thin: 1px;
+  --border-width-base: 1.5px;
+  --border-width-thick: 2px;
+
+  /* ----------------------------------------------------------------------
+     SOMBRAS · Tintadas con el azul de marca
+     ---------------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px var(--color-blue-900-a06);
+  --shadow-sm: 0 2px 10px var(--color-blue-900-a06);
+  --shadow-md: 0 12px 28px var(--color-blue-900-a10);
+  --shadow-lg: 0 24px 60px var(--color-blue-900-a16);
+  --shadow-accent: 0 10px 24px var(--color-orange-500-a32);
+
+  /* ----------------------------------------------------------------------
+     DIMENSIONES DE LAYOUT
+     ---------------------------------------------------------------------- */
+  --size-container-max: 1200px;
+  --size-container-narrow: 960px;
+  --size-container-text: 720px;
+  --size-header-height: 76px;
+  --size-header-height-compact: 64px;
+  --size-gutter: clamp(1.25rem, 0.9rem + 1.6vw, 2rem);
+  --size-icon-sm: 20px;
+  --size-icon-md: 24px;
+  --size-icon-lg: 32px;
+  --size-tap-target: 44px;
+
+  /* ----------------------------------------------------------------------
+     BREAKPOINTS · Referencia única (documentación + lectura desde JS)
+     Las @media los replican en valor porque CSS aún no acepta var() ahí.
+     sm 480 · md 768 · lg 1024 · xl 1280
+     ---------------------------------------------------------------------- */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* ----------------------------------------------------------------------
+     MOVIMIENTO
+     ---------------------------------------------------------------------- */
+  --duration-instant: 100ms;
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 520ms;
+  --ease-out: cubic-bezier(0.22, 0.7, 0.24, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ----------------------------------------------------------------------
+     CAPAS (z-index)
+     ---------------------------------------------------------------------- */
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+}

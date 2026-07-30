@@ -1,0 +1,198 @@
+/* ==========================================================================
+   TOKENS · NIVEL 2 — SEMÁNTICOS
+   --------------------------------------------------------------------------
+   Traducen el valor crudo a INTENCIÓN de uso. Aquí se codifican las reglas
+   de 02-BRAND.md: qué color va sobre qué fondo y para qué sirve.
+   REGLA: esta capa solo consume primitivos. Nunca un HEX literal.
+   ========================================================================== */
+
+:root {
+  /* ======================================================================
+     SUPERFICIES
+     ====================================================================== */
+  --surface-canvas: var(--color-neutral-100);            /* fondo de la página */
+  --surface-raised: var(--color-neutral-100);            /* tarjetas sobre canvas */
+  --surface-sunken: var(--color-neutral-500);            /* bloques hundidos */
+  --surface-strategic: var(--color-neutral-500);         /* secciones estratégicas */
+  --surface-brand: var(--color-blue-900);                /* Convenios · cards Despacho */
+  --surface-brand-gradient: var(--gradient-blue);        /* HERO y FOOTER */
+  --surface-accent: var(--color-orange-500);             /* bandas de acento */
+  --surface-overlay: var(--color-blue-900-a90);          /* menú móvil, modales */
+  --surface-scrim: var(--gradient-scrim-dark);           /* velo sobre imágenes */
+  --surface-on-brand-subtle: var(--color-neutral-100-a08);
+  --surface-on-brand-raised: var(--color-neutral-100-a12);
+  --surface-accent-subtle: var(--color-orange-500-a10);
+
+  /* ======================================================================
+     TEXTO
+     Sobre blanco  → neutral 900
+     Sobre marca / gradiente / naranja → neutral 100
+     ====================================================================== */
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-900-a72);
+  --text-muted: var(--color-neutral-900-a56);
+  --text-accent: var(--color-orange-500);
+
+  --text-on-brand: var(--color-neutral-100);
+  --text-on-brand-secondary: var(--color-neutral-100-a80);
+  --text-on-brand-muted: var(--color-neutral-100-a64);
+  --text-on-brand-accent: var(--color-orange-500);
+
+  --text-on-accent: var(--color-neutral-100);
+  --text-on-accent-secondary: var(--color-neutral-100-a80);
+
+  --text-inverse: var(--color-neutral-100);
+  --text-success: var(--color-success-500);
+  --text-error: var(--color-error-500);
+
+  /* ======================================================================
+     ENLACES
+     Naranja sobre blue brand, blue gradient y canvas.
+     ====================================================================== */
+  --link-color: var(--color-neutral-900);
+  --link-color-hover: var(--color-orange-500);
+  --link-on-brand: var(--color-neutral-100);
+  --link-on-brand-hover: var(--color-orange-500);
+  --link-accent: var(--color-orange-500);
+  --link-accent-hover: var(--color-orange-200);
+
+  /* ======================================================================
+     ACCIONES
+     primary  → CTA naranja (sobre canvas, marca y gradiente)
+     inverse  → botón blanco sobre naranja/marca, hover naranja claro
+     ====================================================================== */
+  --action-primary-bg: var(--color-orange-500);
+  --action-primary-bg-hover: var(--color-orange-200);
+  --action-primary-text: var(--color-neutral-100);
+  --action-primary-text-hover: var(--color-blue-900);
+  --action-primary-shadow: var(--shadow-accent);
+
+  --action-inverse-bg: var(--color-neutral-100);
+  --action-inverse-bg-hover: var(--color-neutral-500);
+  --action-inverse-text: var(--color-blue-900);
+  --action-inverse-text-hover: var(--color-blue-900);
+
+  --action-secondary-bg: transparent;
+  --action-secondary-text: var(--color-blue-900);
+  --action-secondary-border: var(--color-blue-900-a16);
+  --action-secondary-bg-hover: transparent;
+  --action-secondary-text-hover: var(--color-orange-500);
+  --action-secondary-border-hover: var(--color-orange-500);
+
+  --action-secondary-on-brand-text: var(--color-neutral-100);
+  --action-secondary-on-brand-border: var(--color-neutral-100-a24);
+  --action-secondary-on-brand-text-hover: var(--color-orange-500);
+  --action-secondary-on-brand-border-hover: var(--color-orange-500);
+
+  --action-disabled-bg: var(--color-neutral-500);
+  --action-disabled-text: var(--color-neutral-900-a56);
+
+  /* ======================================================================
+     BORDES Y SEPARADORES
+     ====================================================================== */
+  --border-subtle: var(--color-neutral-500);
+  --border-strong: var(--color-blue-900-a16);
+  --border-accent: var(--color-orange-500);
+  --border-on-brand: var(--color-neutral-100-a12);
+  --border-on-brand-strong: var(--color-neutral-100-a24);
+
+  /* ======================================================================
+     FOCO · Accesibilidad
+     ====================================================================== */
+  --focus-ring-color: var(--color-orange-500);
+  --focus-ring-color-on-brand: var(--color-orange-200);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  /* ======================================================================
+     TIPOGRAFÍA SEMÁNTICA
+     Titulares → Britanica · Cuerpo → Urbanist
+     ====================================================================== */
+  --font-display: var(--font-family-display);
+  --font-body: var(--font-family-body);
+
+  --typography-display-size: var(--font-size-1000);
+  --typography-display-weight: var(--font-weight-black);
+  --typography-display-line-height: var(--line-height-tight);
+  --typography-display-tracking: var(--letter-spacing-tighter);
+
+  --typography-h1-size: var(--font-size-900);
+  --typography-h1-weight: var(--font-weight-black);
+  --typography-h1-line-height: var(--line-height-tight);
+  --typography-h1-tracking: var(--letter-spacing-tighter);
+
+  --typography-h2-size: var(--font-size-800);
+  --typography-h2-weight: var(--font-weight-black);
+  --typography-h2-line-height: var(--line-height-snug);
+  --typography-h2-tracking: var(--letter-spacing-tight);
+
+  --typography-h3-size: var(--font-size-700);
+  --typography-h3-weight: var(--font-weight-bold);
+  --typography-h3-line-height: var(--line-height-snug);
+  --typography-h3-tracking: var(--letter-spacing-tight);
+
+  --typography-h4-size: var(--font-size-600);
+  --typography-h4-weight: var(--font-weight-bold);
+  --typography-h4-line-height: var(--line-height-snug);
+  --typography-h4-tracking: var(--letter-spacing-normal);
+
+  --typography-h5-size: var(--font-size-500);
+  --typography-h5-weight: var(--font-weight-bold);
+  --typography-h5-line-height: var(--line-height-base);
+
+  --typography-lead-size: var(--font-size-500);
+  --typography-lead-line-height: var(--line-height-relaxed);
+
+  --typography-body-size: var(--font-size-400);
+  --typography-body-line-height: var(--line-height-base);
+
+  --typography-small-size: var(--font-size-300);
+  --typography-caption-size: var(--font-size-200);
+
+  --typography-eyebrow-size: var(--font-size-200);
+  --typography-eyebrow-weight: var(--font-weight-bold);
+  --typography-eyebrow-tracking: var(--letter-spacing-widest);
+
+  /* ======================================================================
+     LAYOUT SEMÁNTICO
+     ====================================================================== */
+  --layout-container-width: var(--size-container-max);
+  --layout-container-narrow: var(--size-container-narrow);
+  --layout-container-text: var(--size-container-text);
+  --layout-gutter: var(--size-gutter);
+  --layout-section-spacing: var(--space-fluid-lg);
+  --layout-section-spacing-compact: var(--space-fluid-md);
+  --layout-block-gap: var(--space-fluid-sm);
+  --layout-grid-gap: var(--space-6);
+  --layout-stack-gap: var(--space-4);
+  --layout-header-height: var(--size-header-height);
+
+  /* ======================================================================
+     ELEVACIÓN SEMÁNTICA
+     ====================================================================== */
+  --elevation-flat: none;
+  --elevation-raised: var(--shadow-sm);
+  --elevation-floating: var(--shadow-md);
+  --elevation-overlay: var(--shadow-lg);
+
+  /* ======================================================================
+     RADIOS SEMÁNTICOS
+     ====================================================================== */
+  --radius-control: var(--radius-pill);
+  --radius-surface: var(--radius-md);
+  --radius-surface-lg: var(--radius-lg);
+  --radius-media: var(--radius-lg);
+
+  /* ======================================================================
+     MOVIMIENTO SEMÁNTICO
+     ====================================================================== */
+  --transition-control: var(--duration-fast) var(--ease-out);
+  --transition-surface: var(--duration-base) var(--ease-out);
+  --transition-reveal: var(--duration-slow) var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   Los contextos de color (.on-brand, .on-accent, .on-canvas) viven en
+   tokens/contexts.css, que se importa DESPUÉS de tokens/components.css
+   porque también necesita redeclarar tokens de nivel 3.
+   -------------------------------------------------------------------------- */

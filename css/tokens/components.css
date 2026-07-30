@@ -1,0 +1,297 @@
+/* ==========================================================================
+   TOKENS · NIVEL 3 — COMPONENTE
+   --------------------------------------------------------------------------
+   Un token por decisión visual de cada componente. Es la ÚNICA capa que
+   consumen los archivos de layout/ y components/.
+   REGLA: solo consume tokens semánticos. Nunca primitivos ni HEX.
+   Beneficio: retocar un componente no obliga a tocar su CSS.
+   ========================================================================== */
+
+:root {
+  /* ======================================================================
+     BOTONES
+     ====================================================================== */
+  --button-font-family: var(--font-display);
+  --button-font-weight: var(--font-weight-bold);
+  --button-font-size: var(--font-size-400);
+  --button-font-size-sm: var(--font-size-300);
+  --button-font-size-lg: var(--font-size-500);
+  --button-padding-block: var(--space-3);
+  --button-padding-inline: var(--space-6);
+  --button-padding-block-sm: var(--space-2);
+  --button-padding-inline-sm: var(--space-4);
+  --button-padding-block-lg: var(--space-4);
+  --button-padding-inline-lg: var(--space-8);
+  --button-radius: var(--radius-control);
+  --button-gap: var(--space-2);
+  --button-border-width: var(--border-width-base);
+  --button-min-height: var(--size-tap-target);
+  --button-transition: var(--transition-control);
+  --button-lift: -2px;
+
+  --button-primary-bg: var(--action-primary-bg);
+  --button-primary-text: var(--action-primary-text);
+  --button-primary-shadow: var(--action-primary-shadow);
+  --button-primary-bg-hover: var(--action-primary-bg-hover);
+  --button-primary-text-hover: var(--action-primary-text-hover);
+
+  --button-inverse-bg: var(--action-inverse-bg);
+  --button-inverse-text: var(--action-inverse-text);
+  --button-inverse-bg-hover: var(--action-inverse-bg-hover);
+  --button-inverse-text-hover: var(--action-inverse-text-hover);
+
+  --button-secondary-bg: var(--action-secondary-bg);
+  --button-secondary-text: var(--action-secondary-text);
+  --button-secondary-border: var(--action-secondary-border);
+  --button-secondary-text-hover: var(--action-secondary-text-hover);
+  --button-secondary-border-hover: var(--action-secondary-border-hover);
+
+  --button-disabled-bg: var(--action-disabled-bg);
+  --button-disabled-text: var(--action-disabled-text);
+
+  /* ======================================================================
+     HEADER / NAVEGACIÓN
+     ----------------------------------------------------------------------
+     El header flota transparente sobre el hero y se vuelve sólido con el
+     degradado de marca al hacer scroll. El logo entregado en
+     /public/logos/logo-header.png lleva el texto en blanco, por lo que
+     siempre se apoya sobre fondo oscuro.
+     ====================================================================== */
+  --header-bg: transparent;
+  --header-bg-scrolled: var(--surface-brand-gradient);
+  --header-height: var(--layout-header-height);
+  --header-height-compact: var(--size-header-height-compact);
+  --header-border: transparent;
+  --header-border-scrolled: var(--border-on-brand);
+  --header-shadow-scrolled: var(--elevation-floating);
+  --header-z: var(--z-header);
+
+  --header-logo-height: 38px;
+  --header-logo-height-compact: 30px;
+
+  --nav-gap: var(--space-6);
+  --nav-link-font-family: var(--font-body);
+  --nav-link-font-size: var(--font-size-400);
+  --nav-link-font-weight: var(--font-weight-regular);
+  --nav-link-color: var(--color-neutral-100);
+ --nav-link-color-hover: var(--nav-link-color);;   /* regla 02-BRAND.md */
+  --nav-link-color-active: var(--color-orange-500);
+  --nav-link-indicator: var(--color-orange-500);
+  --nav-link-padding-block: var(--space-2);
+  --nav-link-transition: var(--transition-control);
+
+  --nav-toggle-size: var(--size-tap-target);
+  --nav-toggle-bar-width: 24px;
+  --nav-toggle-bar-height: 2px;
+  --nav-toggle-bar-gap: 6px;
+  --nav-toggle-bar-color: var(--color-neutral-100);
+
+  --nav-panel-bg: var(--surface-brand-gradient);
+  --nav-panel-text: var(--text-on-brand);
+  --nav-panel-link-size: var(--font-size-600);
+  --nav-panel-padding: var(--space-8);
+  --nav-panel-gap: var(--space-5);
+  --nav-panel-z: var(--z-overlay);
+
+  /* ======================================================================
+     FOOTER
+     ====================================================================== */
+  --footer-bg: var(--surface-brand-gradient);          /* regla 02-BRAND.md */
+  --footer-text: var(--text-on-brand-secondary);
+  --footer-heading-color: var(--text-on-brand);
+  --footer-link-color: var(--text-on-brand-secondary);
+  --footer-link-color-hover: var(--color-orange-500);
+  --footer-padding-block: var(--space-fluid-md);
+  --footer-gap: var(--space-10);
+  --footer-divider: var(--border-on-brand);
+  --footer-logo-height: 44px;
+  --footer-badge-bg: var(--surface-on-brand-subtle);
+  --footer-badge-text: var(--text-on-brand-secondary);
+
+  /* ======================================================================
+     SECCIONES
+     ====================================================================== */
+  --section-padding-block: var(--layout-section-spacing);
+  --section-padding-block-compact: var(--layout-section-spacing-compact);
+  --section-head-gap: var(--space-4);
+  --section-head-margin: var(--space-fluid-sm);
+  --section-head-width: var(--layout-container-text);
+
+  --eyebrow-color: var(--text-accent);
+  --eyebrow-size: var(--typography-eyebrow-size);
+  --eyebrow-weight: var(--typography-eyebrow-weight);
+  --eyebrow-tracking: var(--typography-eyebrow-tracking);
+
+  /* ======================================================================
+     HERO
+     ====================================================================== */
+  --hero-bg: var(--surface-brand-gradient);            /* regla 02-BRAND.md */
+  --hero-bg-image-opacity: 0.14;
+  --hero-text: var(--text-on-brand);
+  --hero-padding-block-start: calc(var(--space-fluid-lg) + var(--space-4));
+  --hero-padding-block-end: var(--space-fluid-lg);
+  --hero-gap: var(--space-fluid-md);
+  /* El hero va a dos columnas: el titular usa la escala h1, no la display,
+     para no romperse en demasiadas líneas dentro de media pantalla. */
+  --hero-title-size: var(--typography-h1-size);
+  --hero-title-highlight: var(--color-orange-500);
+  --hero-lead-size: var(--typography-lead-size);
+  --hero-lead-color: var(--text-on-brand-secondary);
+  --hero-lead-measure: var(--measure-base);
+  --hero-media-radius: var(--radius-media);
+  --hero-media-shadow: var(--elevation-overlay);
+  --hero-stat-value-color: var(--color-orange-500);
+  --hero-stat-label-color: var(--text-on-brand-muted);
+
+  /* ======================================================================
+     TARJETAS
+     ====================================================================== */
+  --card-bg: var(--surface-raised);
+  --card-text: var(--text-primary);
+  --card-border: var(--border-subtle);
+  --card-border-width: var(--border-width-thin);
+  --card-radius: var(--radius-surface);
+  --card-padding: var(--space-6);
+  --card-padding-lg: var(--space-8);
+  --card-gap: var(--space-3);
+  --card-shadow: var(--elevation-flat);
+  --card-shadow-hover: var(--elevation-floating);
+  --card-transition: var(--transition-surface);
+  --card-lift: -4px;
+
+  /* Cards de la sección "Todo tu despacho" → fondo blue brand */
+  --card-brand-bg: var(--surface-brand);
+  --card-brand-text: var(--text-on-brand);
+  --card-brand-text-secondary: var(--text-on-brand-secondary);
+  --card-brand-border: transparent;
+  --card-brand-accent: var(--color-orange-500);
+
+  --card-strategic-bg: var(--surface-strategic);
+  --card-strategic-text: var(--text-primary);
+  --card-strategic-border: transparent;
+
+  --card-featured-border: var(--border-accent);
+  --card-featured-border-width: var(--border-width-thick);
+  --card-featured-shadow: var(--elevation-floating);
+  --card-badge-bg: var(--surface-accent);
+  --card-badge-text: var(--text-on-accent);
+  --card-badge-size: var(--font-size-200);
+
+  /* ======================================================================
+     FEATURES / ICONOS
+     ====================================================================== */
+  --feature-gap: var(--space-4);
+  --feature-title-size: var(--typography-h4-size);
+  --feature-title-color: var(--text-primary);
+  --feature-text-size: var(--typography-body-size);
+  --feature-text-color: var(--text-secondary);
+
+  --icon-badge-size: 56px;
+  --icon-badge-size-sm: 44px;
+  --icon-badge-radius: var(--radius-sm);
+  --icon-badge-bg: var(--surface-accent-subtle);
+  --icon-badge-bg-on-brand: var(--surface-on-brand-raised);
+  --icon-size: var(--size-icon-md);
+  --icon-color: var(--color-orange-500);
+
+  --list-check-color: var(--color-orange-500);
+  --list-gap: var(--space-3);
+
+  /* ======================================================================
+     COMPARATIVA · "Lo que no somos" / "Lo que somos"
+     ----------------------------------------------------------------------
+     Ambos paneles van sobre fondo claro. La distinción la lleva el
+     contenedor del icono: neutral 500 en el negativo, naranja en el
+     positivo.
+     ====================================================================== */
+  --compare-panel-bg: transparent;
+  --compare-panel-radius: var(--radius-surface);
+  --compare-panel-padding: var(--card-padding);
+
+  --compare-title-size: var(--typography-h3-size);
+  --compare-title-weight: var(--typography-h3-weight);
+  --compare-title-line-height: var(--typography-h3-line-height);
+  --compare-title-tracking: var(--typography-h3-tracking);
+  --compare-title-color: var(--text-primary);
+  --compare-title-margin: var(--space-5);
+
+  --compare-text-color: var(--text-primary);
+
+  --compare-mark-size: 28px;
+  --compare-mark-radius: var(--radius-circle);
+  --compare-mark-font-size: var(--font-size-300);
+  --compare-mark-negative-bg: var(--surface-sunken);
+  --compare-mark-negative-color: var(--text-primary);
+  --compare-mark-positive-bg: var(--surface-accent);
+  --compare-mark-positive-color: var(--text-on-accent);
+
+  /* ======================================================================
+     FORMULARIOS
+     ====================================================================== */
+  --field-gap: var(--space-2);
+  --field-label-size: var(--font-size-300);
+  --field-label-color: var(--text-secondary);
+  --field-label-weight: var(--font-weight-bold);
+
+  --input-bg: var(--surface-canvas);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-muted);
+  --input-border: var(--border-strong);
+  --input-border-hover: var(--color-neutral-900-a56);
+  --input-border-focus: var(--color-orange-500);
+  --input-border-width: var(--border-width-thin);
+  --input-radius: var(--radius-sm);
+  --input-padding-block: var(--space-3);
+  --input-padding-inline: var(--space-4);
+  --input-font-size: var(--font-size-400);
+  --input-min-height: var(--size-tap-target);
+  --input-transition: var(--transition-control);
+  --input-error-border: var(--color-error-500);
+  --input-error-text: var(--text-error);
+
+  --search-bg: var(--surface-canvas);
+  --search-radius: var(--radius-control);
+  --search-shadow: var(--elevation-raised);
+  --search-padding: var(--space-2);
+
+  --form-card-bg: var(--surface-canvas);
+  --form-card-radius: var(--radius-surface-lg);
+  --form-card-padding: var(--space-8);
+  --form-card-shadow: var(--elevation-overlay);
+
+  /* ======================================================================
+     PÍLDORAS / ETIQUETAS
+     ====================================================================== */
+  --pill-bg: var(--surface-canvas);
+  --pill-text: var(--text-secondary);
+  --pill-border: var(--border-subtle);
+  --pill-radius: var(--radius-control);
+  --pill-padding-block: var(--space-2);
+  --pill-padding-inline: var(--space-4);
+  --pill-font-size: var(--font-size-300);
+  --pill-bg-active: var(--surface-brand);
+  --pill-text-active: var(--text-on-brand);
+  --pill-border-active: var(--surface-brand);
+
+  --tag-bg: var(--surface-accent-subtle);
+  --tag-text: var(--color-orange-500);
+  --tag-font-size: var(--font-size-100);
+  --tag-radius: var(--radius-control);
+
+  /* ======================================================================
+     BANDA CTA
+     ====================================================================== */
+  --cta-band-bg: var(--surface-brand);
+  --cta-band-text: var(--text-on-brand);
+  --cta-band-radius: var(--radius-surface-lg);
+  --cta-band-padding: var(--space-fluid-md);
+
+  /* ======================================================================
+     MEDIA
+     ====================================================================== */
+  --media-radius: var(--radius-media);
+  --media-shadow: var(--elevation-floating);
+  --media-ratio-wide: 16 / 9;
+  --media-ratio-square: 1 / 1;
+  --media-ratio-portrait: 4 / 5;
+}

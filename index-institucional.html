@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppBogado — El sistema operativo del abogado ecuatoriano</title>
+<meta name="description" content="Plataforma legal híbrida del Ecuador: capta clientes en el marketplace, gestiona tus casos, factura al SRI y firma con FirmaEC. Hecho en Ecuador, para las reglas del Ecuador.">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="AppBogado — El sistema operativo del abogado ecuatoriano">
+<meta property="og:description" content="Capta clientes, gestiona casos, factura al SRI y firma con FirmaEC. Empieza gratis.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="public/images/imagen-hero.webp">
+
+<!-- Identidad -->
+<link rel="icon" type="image/png" href="public/favicon/favicon.png">
+<link rel="apple-touch-icon" href="public/favicon/favicon.png">
+
+<!-- Tipografías locales: se precargan las dos de uso inmediato -->
+<link rel="preload" href="public/fonts/Britanica-Black%20Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="public/fonts/Urbanist-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+<!-- Sistema de estilos (tokens → base → layout → componentes → utilidades) -->
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ==========================================================================
+     HEADER · transparente sobre el hero, degradado sólido al hacer scroll
+     ========================================================================== -->
+<header class="site-header on-brand" data-header>
+  <div class="container site-header__inner">
+
+    <a class="site-logo" href="#inicio" aria-label="AppBogado, ir al inicio">
+      <img src="public/logos/logo-header.png" alt="AppBogado" width="1534" height="353">
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú" data-nav-toggle>
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <div class="site-nav" id="menu-principal" data-nav-panel>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a class="main-nav__link" href="#despacho">Para abogados</a></li>
+          <li><a class="main-nav__link" href="#marketplace">Para clientes</a></li>
+          <li><a class="main-nav__link" href="#documentos-ia">Documentos IA</a></li>
+          <li><a class="main-nav__link" href="#planes">Planes</a></li>
+          <li><a class="main-nav__link" href="#convenios">Convenios</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn--secondary btn--sm" href="#">Ingresar</a>
+        <a class="btn btn--primary btn--sm" href="#planes">Empieza gratis</a>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ========================================================================
+       HERO · fondo blue gradient (02-BRAND.md)
+       ======================================================================== -->
+  <section class="hero on-gradient" id="inicio">
+    <img class="hero__bg" src="public/images/background-hero.webp" alt="" width="1920" height="1080" aria-hidden="true">
+
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <span class="eyebrow">Plataforma legal híbrida · Ecuador</span>
+        <h1 class="hero__title">Tu despacho completo, en un solo lugar</h1>
+        <p class="hero__lead">Capta clientes, gestiona tus casos, factura al SRI y firma con FirmaEC. Hecho en Ecuador, para las reglas del Ecuador.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#despacho">Soy abogado</a>
+          <a class="btn btn--secondary btn--lg" href="#marketplace">Buscar abogado</a>
+        </div>
+
+       <!--  <dl class="hero__stats">
+          <div class="stat">
+            <dt class="stat__value">127.000+</dt>
+            <dd class="stat__label">abogados en el mercado</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value">SRI · FirmaEC</dt>
+            <dd class="stat__label">cumplimiento nativo</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value">IA</dt>
+            <dd class="stat__label">escritos y triaje</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value">4.9/5</dt>
+            <dd class="stat__label">valoración</dd>
+          </div>
+        </dl>-->
+      </div>
+
+      <div class="hero__media">
+        <img src="public/images/imagen-hero.webp" alt="La aplicación de AppBogado en tres pantallas: organiza tu despacho, factura y firma, y conecta con oportunidades." width="3132" height="3432" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECCION STATS
+       ======================================================================== -->
+
+   <section class="section section--strategic section--compact hero-stats-band">
+  <div class="container">
+    <dl class="stats stats--horizontal">
+      <div class="stat">
+        <dt class="stat__value">+127.000</dt>
+        <dd class="stat__label">abogados </dd>
+      </div>
+
+      <div class="stat">
+        <dt class="stat__value">SRI · FirmaEC</dt>
+        <dd class="stat__label">cumplimiento nativo</dd>
+      </div>
+
+      <div class="stat">
+        <dt class="stat__value">IA</dt>
+        <dd class="stat__label">escritos y triaje</dd>
+      </div>
+
+      <div class="stat">
+        <dt class="stat__value">4.9/5</dt>
+        <dd class="stat__label">valoración</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+  <!-- ========================================================================
+       DOLORES · sección estratégica (neutral 500)
+       ======================================================================== -->
+  <!-- <section class="section section--strategic" id="problema">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">El día a día</span>
+        <h2>Un despacho no se rompe por falta de casos</h2>
+        <p>Se rompe en la operación: mensajes dispersos, plazos que corren solos y horas trabajadas que nunca llegan a facturarse.</p>
+      </div>
+
+      <div class="grid grid--4 reveal">
+        <article class="card card--plain card--interactive feature">
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/dolor-conversaciones.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Conversaciones dispersas</h3>
+          <p class="feature__text">El caso vive en el chat personal, mezclado con la vida privada y sin rastro del acuerdo.</p>
+        </article>
+
+        <article class="card card--plain card--interactive feature">
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/dolor-seguimiento.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Plazos sin control</h3>
+          <p class="feature__text">Los términos corren en días hábiles y no hay un sistema que los vigile por ti.</p>
+        </article>
+
+        <article class="card card--plain card--interactive feature">
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/dolor-ventas.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Horas que no se cobran</h3>
+          <p class="feature__text">Se trabaja, se entrega y la factura se posterga hasta que deja de emitirse.</p>
+        </article>
+
+        <article class="card card--plain card--interactive feature">
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/dolor-atencion.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Consultas sin respuesta</h3>
+          <p class="feature__text">El ciudadano pregunta por cinco canales distintos y ninguno tiene un dueño claro.</p>
+        </article>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ========================================================================
+       LA PLATAFORMA · canvas
+       ======================================================================== -->
+  <section class="section" id="plataforma">
+  <div class="container">
+
+    <div class="platform-layout reveal">
+
+      <!-- Contenedor izquierdo -->
+      <div class="platform-intro on-accent">
+        <span class="eyebrow">La plataforma</span>
+
+        <h2>
+          No vendemos software. Vendemos el despacho completo.
+        </h2>
+
+        <p>
+          La justicia se digitaliza —expediente electrónico, firma,
+          factura— pero el abogado sigue operando con el chat personal,
+          Word y Excel. AppBogado ocupa ese vacío.
+        </p>
+
+        <a class="btn btn--inverse" href="#planes">
+          Conoce nuestros planes
+        </a>
+      </div>
+
+      <!-- Contenedor derecho -->
+      <div class="platform-lists">
+
+        <div class="compare-panel compare-panel--negative">
+          <h3 class="compare-panel__title">Lo que no somos</h3>
+
+          <ul class="check-list">
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✕</span>
+              Un directorio con fotos y teléfonos
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✕</span>
+              Un facturador genérico sin contexto jurídico
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✕</span>
+              Software importado que ignora al SRI y los días hábiles
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✕</span>
+              Promesas de «clientes garantizados»
+            </li>
+          </ul>
+        </div>
+
+        <div class="compare-panel compare-panel--positive">
+          <h3 class="compare-panel__title">Lo que somos</h3>
+
+          <ul class="check-list">
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✓</span>
+              Marketplace y ERP jurídico en un solo producto
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✓</span>
+              Cumplimiento ecuatoriano nativo: SRI, FirmaEC, LOPDP
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✓</span>
+              IA aplicada al triaje y a la generación de escritos
+            </li>
+
+            <li>
+              <span class="check-list__mark" aria-hidden="true">✓</span>
+              Web y aplicaciones móviles en producción
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ========================================================================
+       TODO TU DESPACHO · las 4 cards van en blue brand (02-BRAND.md)
+       ======================================================================== -->
+  <section class="section section--canvas" id="despacho">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Todo tu despacho</span>
+        <h2>Captar, operar y respaldar tu práctica</h2>
+        <p>Cuatro capacidades que hoy resuelves con cinco herramientas distintas, unidas en una sola plataforma.</p>
+      </div>
+
+      <div class="grid grid--4 reveal">
+        <article class="card card--brand card--interactive feature">
+          
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/Captar-clientes.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Captar clientes</h3>
+          <p class="card__text">Perfil verificado en el marketplace; el ciudadano agenda y paga la cita en línea.</p>
+        </article>
+
+        <article class="card card--brand card--interactive feature">
+          
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/operar-despacho.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Operar el despacho</h3>
+          <p class="card__text">Casos, audiencias y plazos en días hábiles, con agenda sincronizada y avisos por WhatsApp.</p>
+        </article>
+
+        <article class="card card--brand card--interactive feature">
+         
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/facturar-firmar.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Facturar y firmar</h3>
+          <p class="card__text">Factura electrónica con autorización real del SRI y firma FirmaEC integrada.</p>
+        </article>
+
+        <article class="card card--brand card--interactive feature">
+          
+          <span class="icon-badge" aria-hidden="true">
+            <img src="public/icons/documentos-ia.svg" alt="" width="24" height="24">
+          </span>
+          <h3 class="feature__title">Documentos con IA</h3>
+          <p class="card__text">Genera minutas, denuncias y demandas sobre 10.000+ escritos reales y la ley vigente.</p>
+        </article>
+      </div>
+
+    
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LOS TRES NIVELES · sección estratégica (neutral 500)
+       Dos columnas: cards a la izquierda, imagen a la derecha.
+       ======================================================================== -->
+  <section class="section section--strategic" id="niveles">
+    <div class="container">
+      <div class="split split--text-wide reveal">
+
+        <div class="stack">
+          <article class="card card--plain">
+            <span class="card__eyebrow">Captar</span>
+            <h3 class="card__title">Marketplace</h3>
+            <p class="card__text">Catálogo público con perfiles verificados, reserva de citas por tipo —video, llamada, chat o presencial— y pago en línea con Datafast o Payphone.</p>
+          </article>
+
+          <article class="card card--plain">
+            <span class="card__eyebrow">Operar</span>
+            <h3 class="card__title">ERP jurídico</h3>
+            <p class="card__text">Casos, tareas y plazos en días hábiles, ruteador de trámites por provincia, agenda con Google Calendar y notificaciones por WhatsApp.</p>
+          </article>
+
+          <article class="card card--plain">
+            <span class="card__eyebrow">Respaldar</span>
+            <h3 class="card__title">Cumplimiento e IA</h3>
+            <p class="card__text">Facturación SRI, firma digital FirmaEC, asistente de triaje y generador de escritos, siempre con revisión y firma del profesional.</p>
+          </article>
+        </div>
+
+        <div class="figure-bare">
+          <img src="public/images/seccion-captar.webp" alt="Abogado verificado listo para atender consultas desde la aplicación de AppBogado." width="1593" height="1593" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MARKETPLACE · canvas
+       ======================================================================== -->
+  <section class="section" id="marketplace">
+    <div class="container">
+      <div class="split split--text-wide split--top reveal">
+        <div class="stack stack--loose">
+          <div class="stack">
+            <span class="eyebrow">Para clientes</span>
+            <h2>Encuentra tu consultor legal</h2>
+            <p class="lead">Abogados verificados con cédula activa en el Consejo de la Judicatura. Compara, agenda y paga tu cita en minutos.</p>
+          </div>
+
+          <form class="search" role="search" onsubmit="return false">
+            <label class="visually-hidden" for="buscar-abogado">Buscar abogado por materia, ciudad o nombre</label>
+            <input class="search__input" id="buscar-abogado" type="search" placeholder="Materia, ciudad o nombre del abogado">
+            <button class="btn btn--primary btn--sm" type="submit">Buscar</button>
+          </form>
+
+          <div class="cluster" data-filter-group>
+            <button class="pill is-active" type="button" aria-pressed="true">Todas las materias</button>
+            <button class="pill" type="button" aria-pressed="false">Penal</button>
+            <button class="pill" type="button" aria-pressed="false">Laboral</button>
+            <button class="pill" type="button" aria-pressed="false">Civil</button>
+            <button class="pill" type="button" aria-pressed="false">Familia</button>
+            <button class="pill" type="button" aria-pressed="false">Tránsito</button>
+          </div>
+        </div>
+
+        <div class="stack stack--loose">
+          <div class="feature feature--inline">
+            <span class="icon-badge icon-badge--sm" aria-hidden="true">
+              <img src="public/icons/calendario.svg" alt="" width="24" height="24" loading="lazy">
+            </span>
+            <div class="feature__body">
+              <h3 class="h5">Agenda confirmada al instante</h3>
+              <p class="text-small text-secondary">Cita por video, llamada, chat o presencial, con el precio visible antes de reservar.</p>
+            </div>
+          </div>
+
+          <div class="feature feature--inline">
+            <span class="icon-badge icon-badge--sm" aria-hidden="true">
+              <img src="public/icons/calendar-days.svg" alt="" width="24" height="24" loading="lazy">
+            </span>
+            <div class="feature__body">
+              <h3 class="h5">Pago en línea y recordatorios</h3>
+              <p class="text-small text-secondary">Paga con Datafast o Payphone y recibe los avisos de tu cita por WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="feature feature--inline">
+            <span class="icon-badge icon-badge--sm" aria-hidden="true">
+              <img src="public/icons/contacto-soporte.svg" alt="" width="24" height="24" loading="lazy">
+            </span>
+            <div class="feature__body">
+              <h3 class="h5">Acompañamiento verificado</h3>
+              <p class="text-small text-secondary">Todos los perfiles tienen cédula activa en el Consejo de la Judicatura.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid--4 reveal mt-8">
+        <article class="card card--profile card--interactive">
+          <div class="card__header">
+            <span class="card__avatar" aria-hidden="true">MC</span>
+            <div>
+              <h3 class="h5">María Castro</h3>
+              <p class="text-caption">Derecho laboral</p>
+            </div>
+          </div>
+          <span class="tag">✓ Verificado</span>
+          <div class="card__meta">
+            <span>★ 4.9 (128)</span>
+            <span>desde $25</span>
+          </div>
+          <a class="btn btn--primary btn--sm btn--block" href="#">Agendar cita</a>
+        </article>
+
+        <article class="card card--profile card--interactive">
+          <div class="card__header">
+            <span class="card__avatar" aria-hidden="true">JR</span>
+            <div>
+              <h3 class="h5">Jorge Ramírez</h3>
+              <p class="text-caption">Penal · Tránsito</p>
+            </div>
+          </div>
+          <span class="tag">✓ Verificado</span>
+          <div class="card__meta">
+            <span>★ 4.8 (96)</span>
+            <span>desde $30</span>
+          </div>
+          <a class="btn btn--primary btn--sm btn--block" href="#">Agendar cita</a>
+        </article>
+
+        <article class="card card--profile card--interactive">
+          <div class="card__header">
+            <span class="card__avatar" aria-hidden="true">LP</span>
+            <div>
+              <h3 class="h5">Lucía Paredes</h3>
+              <p class="text-caption">Familia · Civil</p>
+            </div>
+          </div>
+          <span class="tag">✓ Verificado</span>
+          <div class="card__meta">
+            <span>★ 5.0 (54)</span>
+            <span>desde $20</span>
+          </div>
+          <a class="btn btn--primary btn--sm btn--block" href="#">Agendar cita</a>
+        </article>
+
+        <article class="card card--profile card--interactive">
+          <div class="card__header">
+            <span class="card__avatar" aria-hidden="true">DE</span>
+            <div>
+              <h3 class="h5">Diego Espín</h3>
+              <p class="text-caption">Corporativo</p>
+            </div>
+          </div>
+          <span class="tag">✓ Verificado</span>
+          <div class="card__meta">
+            <span>★ 4.7 (71)</span>
+            <span>desde $40</span>
+          </div>
+          <a class="btn btn--primary btn--sm btn--block" href="#">Agendar cita</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+ <!-- ========================================================================
+     DOCUMENTOS IA PREMIUM
+     ======================================================================== -->
+<section class="section section--strategic documents-premium" id="documentos-ia">
+  <div class="container documents-premium__layout">
+
+    <!-- PRIMER CONTENEDOR: encabezado -->
+    <div class="documents-premium__head reveal">
+      <span class="eyebrow">Documentos IA Premium</span>
+
+      <h2>Escritos jurídicos, generados con inteligencia</h2>
+
+      <p class="lead">
+        Sobre una base propia de 10.000+ escritos reales y la legislación
+        vigente. La IA asiste; el abogado revisa y firma.
+      </p>
+    </div>
+
+    <!-- SEGUNDO CONTENEDOR: imagen + artículos -->
+    <div class="documents-premium__panel on-accent reveal">
+
+      <!-- Contenedor hijo 1: imagen -->
+      <div class="documents-premium__media">
+        <img
+          src="public/images/documentos-ia.webp"
+          alt="Documentos jurídicos protegidos y firmados digitalmente en la nube."
+          width="1485"
+          height="1485"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Contenedor hijo 2: artículos -->
+      <div class="documents-premium__tiers">
+
+        <article class="documents-tier">
+          <span class="tier__price">USD 1</span>
+
+          <div class="feature__body">
+            <h3 class="h5">Tier 1 · Simple</h3>
+
+            <p>
+              1 a 3 páginas: certificados, cartas, autorizaciones y escritos
+              de mero trámite.
+            </p>
+          </div>
+        </article>
+
+        <article class="documents-tier">
+          <span class="tier__price">USD 5</span>
+
+          <div class="feature__body">
+            <h3 class="h5">Tier 2 · Intermedio</h3>
+
+            <p>
+              4 a 10 páginas: minutas, denuncias, contratos estándar y poderes.
+            </p>
+          </div>
+        </article>
+
+        <article class="documents-tier">
+          <span class="tier__price">USD 10</span>
+
+          <div class="feature__body">
+            <h3 class="h5">Tier 3 · Complejo</h3>
+
+            <p>
+              10 páginas o más: demandas, contestaciones, recursos y contratos
+              complejos.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- TERCER CONTENEDOR: nota -->
+    <p class="section-note">
+      Cada plan de abogado incluye un cupo mensual; el excedente se cobra por
+      documento. Los clientes generan bajo demanda al precio de su tier.
+      Requiere revisión y firma profesional.
+    </p>
+
+  </div>
+</section>
+
+  <!-- ========================================================================
+       PLANES · canvas
+       ======================================================================== -->
+  <section class="section" id="planes">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Planes</span>
+        <h2>Un plan para cada práctica</h2>
+        <p>Precios en USD, mensuales y sin permanencia. Empieza gratis y crece cuando lo necesites.</p>
+      </div>
+
+      <div class="grid grid--5 reveal">
+        <article class="card card--plan card--interactive">
+          <h3 class="card__title">Gratis</h3>
+          <p class="text-caption">Activa tu cuenta hoy</p>
+          <p class="card__price">$0</p>
+          <ul class="check-list check-list--compact">
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Perfil básico</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> 1 documento IA de prueba</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Agenda personal</li>
+          </ul>
+          <div class="card__footer">
+            <a class="btn btn--secondary btn--sm btn--block" href="#">Empezar</a>
+          </div>
+        </article>
+
+        <article class="card card--plan card--interactive">
+          <h3 class="card__title">ERP Despacho</h3>
+          <p class="text-caption">Deja atrás el Excel</p>
+          <p class="card__price">$19<small>/mes</small></p>
+          <ul class="check-list check-list--compact">
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Casos y plazos</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Facturación SRI</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> 5 documentos IA al mes</li>
+          </ul>
+          <div class="card__footer">
+            <a class="btn btn--secondary btn--sm btn--block" href="#">Elegir</a>
+          </div>
+        </article>
+
+        <article class="card card--plan card--featured">
+          <span class="card__badge">Más popular</span>
+          <h3 class="card__title">Profesional</h3>
+          <p class="text-caption">Consigue clientes</p>
+          <p class="card__price">$29<small>/mes</small></p>
+          <ul class="check-list check-list--compact">
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Todo lo anterior</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Marketplace y citas pagadas</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> FirmaEC</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> 10 documentos IA al mes</li>
+          </ul>
+          <div class="card__footer">
+            <a class="btn btn--primary btn--sm btn--block" href="#">Elegir plan</a>
+          </div>
+        </article>
+
+        <article class="card card--plan card--interactive">
+          <h3 class="card__title">ERP Pro</h3>
+          <p class="text-caption">Firma con investigación</p>
+          <p class="card__price">$49<small>/mes</small></p>
+          <ul class="check-list check-list--compact">
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Todo ERP Despacho</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Investigación jurídica</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> 20 documentos IA al mes</li>
+          </ul>
+          <div class="card__footer">
+            <a class="btn btn--secondary btn--sm btn--block" href="#">Elegir</a>
+          </div>
+        </article>
+
+        <article class="card card--plan card--interactive">
+          <h3 class="card__title">Estudio</h3>
+          <p class="text-caption">Equipo completo</p>
+          <p class="card__price">$99<small>/mes</small></p>
+          <ul class="check-list check-list--compact">
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Todo Profesional</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Roles y equipo</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Analítica del estudio</li>
+            <li><span class="check-list__mark" aria-hidden="true">✓</span> Cupos IA en pool</li>
+          </ul>
+          <div class="card__footer">
+            <a class="btn btn--secondary btn--sm btn--block" href="#">Elegir</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="section-note">Cupones institucionales disponibles a través de convenios con colegios de abogados.</p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONVENIOS · fondo blue brand (02-BRAND.md)
+       ======================================================================== -->
+  <section class="section section--brand on-brand" id="convenios">
+    <div class="container">
+      <div class="split reveal">
+        <div class="stack stack--loose">
+          <div class="stack">
+            <span class="eyebrow">Convenios institucionales</span>
+            <h2>Junto al gremio, no a su costa</h2>
+            <p class="lead">Trabajamos con colegios de abogados, universidades y notarías para llevar la modernización a cada agremiado, sin costo para la institución.</p>
+          </div>
+
+          <div class="stack">
+            <div class="feature feature--inline">
+              <span class="icon-badge icon-badge--sm icon-badge--circle icon-badge--accent" aria-hidden="true">✓</span>
+              <div class="feature__body">
+                <h3 class="h5">Cupón institucional trazable</h3>
+                <p class="text-small text-secondary">Beneficio exclusivo para agremiados, sin alterar el precio de lista.</p>
+              </div>
+            </div>
+
+            <div class="feature feature--inline">
+              <span class="icon-badge icon-badge--sm icon-badge--circle icon-badge--accent" aria-hidden="true">✓</span>
+              <div class="feature__body">
+                <h3 class="h5">Capacitación certificada</h3>
+                <p class="text-small text-secondary">Talleres de SRI, FirmaEC, plazos y LOPDP, co-firmados con el colegio.</p>
+              </div>
+            </div>
+
+            <div class="feature feature--inline">
+              <span class="icon-badge icon-badge--sm icon-badge--circle icon-badge--accent" aria-hidden="true">✓</span>
+              <div class="feature__body">
+                <h3 class="h5">Insignia de profesional verificado</h3>
+                <p class="text-small text-secondary">Distinción visible ante el ciudadano dentro del marketplace.</p>
+              </div>
+            </div>
+
+            <div class="feature feature--inline">
+              <span class="icon-badge icon-badge--sm icon-badge--circle icon-badge--accent" aria-hidden="true">✓</span>
+              <div class="feature__body">
+                <h3 class="h5">Canal notarial</h3>
+                <p class="text-small text-secondary">La minuta se genera en la plataforma y se perfecciona en la notaría.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--lg">
+          <h3 class="card__title">El convenio en números</h3>
+          <dl>
+            <div class="data-row"><dt>Colegios provinciales</dt><dd class="data-row__value">24</dd></div>
+            <div class="data-row"><dt>Abogados en el mercado</dt><dd class="data-row__value">127.000+</dd></div>
+            <div class="data-row"><dt>Costo para el colegio</dt><dd class="data-row__value">USD 0</dd></div>
+            <div class="data-row"><dt>Recuperación de CAC</dt><dd class="data-row__value">≤ 1,5 meses</dd></div>
+          </dl>
+          <div class="card__footer">
+            <a class="btn btn--primary btn--block" href="#contacto">Proponer un convenio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CIERRE · banda CTA
+       ======================================================================== -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="cta-band on-accent reveal">
+        <!--<span class="eyebrow">Empieza hoy</span>-->
+        <h2>Pon tu despacho en orden</h2>
+        <p>Activa tu cuenta gratis, verifica tu perfil y capta a tu próximo cliente esta semana.</p>
+        <div class="btn-group btn-group--center">
+          <a class="btn btn--primary btn--lg" href="#planes">Crear cuenta gratis</a>
+          <a class="btn btn--secondary btn--lg" href="#">Ver una demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER · fondo blue gradient (02-BRAND.md)
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div class="site-footer__brand">
+        <img src="public/logos/logo-footer.png" alt="AppBogado" width="1534" height="353" loading="lazy">
+        <p class="site-footer__about">El sistema operativo del abogado ecuatoriano. Plataforma legal híbrida hecha en Ecuador.</p>
+        <div class="site-footer__social">
+          <a href="#" aria-label="Escríbenos por correo">
+            <img src="public/icons/contacto-email.svg" alt="" width="24" height="24" loading="lazy">
+          </a>
+          <a href="#" aria-label="Escríbenos por WhatsApp">
+            <img src="public/icons/contacto-whatsapp.svg" alt="" width="24" height="24" loading="lazy">
+          </a>
+          <a href="#" aria-label="Centro de soporte">
+            <img src="public/icons/contacto-soporte.svg" alt="" width="24" height="24" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">Producto</h2>
+        <ul class="site-footer__list">
+          <li><a href="#despacho">Para abogados</a></li>
+          <li><a href="#marketplace">Para clientes</a></li>
+          <li><a href="#documentos-ia">Documentos IA</a></li>
+          <li><a href="#planes">Planes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">Institucional</h2>
+        <ul class="site-footer__list">
+          <li><a href="#convenios">Convenios</a></li>
+          <li><a href="landings/campana-convenios.html">Colegios de abogados</a></li>
+          <li><a href="landings/campana-abogados.html">Campaña abogados</a></li>
+          <li><a href="landings/campana-clientes.html">Campaña clientes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">Legal</h2>
+        <ul class="site-footer__list">
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Protección de datos (LOPDP)</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© 2026 AppBogado · CODEPLUS S.A. · app.appbogadoec.com</span>
+      <div class="site-footer__badges">
+        <span>Cumple SRI</span>
+        <span>FirmaEC</span>
+        <span>LOPDP</span>
+        <span>Hecho en Ecuador</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/ui.js" defer></script>
+</body>
+</html>

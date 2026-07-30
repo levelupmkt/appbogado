@@ -1,0 +1,41 @@
+/* ==========================================================================
+   BASE · TIPOGRAFÍAS LOCALES
+   --------------------------------------------------------------------------
+   Se consumen EXCLUSIVAMENTE los archivos de /public/fonts.
+   Sin Google Fonts: sin peticiones a terceros, sin FOUT de red.
+   Los nombres de archivo llevan espacios → se codifican como %20.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BRITANICA — Titulares (02-BRAND.md)
+   Bold 700 · Black 900
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Britanica";
+  src: url("../../public/fonts/Britanica-Bold%20Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Britanica";
+  src: url("../../public/fonts/Britanica-Black%20Regular.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   URBANIST — Cuerpo de texto (02-BRAND.md)
+   Solo se entregó el corte Regular 400. Cualquier énfasis en cuerpo de texto
+   se resuelve con Britanica (titulares) o con color/tamaño, nunca con
+   negrita sintética del navegador.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Urbanist";
+  src: url("../../public/fonts/Urbanist-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

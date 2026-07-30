@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppBogado — Convenio institucional para colegios de abogados</title>
+<meta name="description" content="Lleva la modernización a tus agremiados sin costo para el colegio: cupón institucional, capacitación certificada e insignia de verificado. Solicita una reunión.">
+<meta property="og:title" content="AppBogado — Convenio para colegios de abogados">
+<meta property="og:description" content="Beneficio gremial sin costo para el colegio. Cupón institucional, capacitación certificada e insignia de verificado.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#1E2A32; --naranja:#E57335; --naranja-d:#c85f26; --marron:#3E3835;
+    --crema:#FDF3EB; --gris:#E6E6E6; --gris-txt:#6b7076; --blanco:#fff; --ok:#2e9e6b;
+    --shadow:0 12px 34px rgba(30,42,50,.12); --shadow-lg:0 26px 64px rgba(30,42,50,.22);
+    --rp:999px; --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--tinta);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--blanco)}
+  h1,h2,h3,.wm{font-family:"Poppins",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;width:100%}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:none;cursor:pointer;font-family:"Poppins";font-weight:700;font-size:1rem;padding:1rem 1.5rem;border-radius:var(--rp);transition:.2s transform,.2s box-shadow,.2s background;width:100%}
+  .btn-primary{background:var(--naranja);color:#fff;box-shadow:0 10px 24px rgba(229,115,53,.32)}
+  .btn-primary:hover{background:var(--naranja-d);transform:translateY(-2px)}
+  .iso{width:30px;height:30px;flex:0 0 auto}
+  .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--naranja)}
+
+  .topbar{background:var(--blanco);border-bottom:1px solid var(--gris)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:.5rem}
+  .logo .wm{font-weight:800;font-size:1.18rem;color:var(--tinta)}
+  .trust-mini{font-size:.8rem;color:var(--gris-txt);font-weight:600}
+  @media(max-width:640px){.trust-mini{display:none}}
+
+  .hero{background:
+     radial-gradient(900px 460px at 100% -10%, rgba(229,115,53,.16), transparent 60%),
+     linear-gradient(158deg,var(--marron),var(--tinta) 62%);
+     color:#fff;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:56px 0 64px}
+  .hero h1{font-size:2.8rem;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin:.6rem 0 1rem}
+  .hero h1 .hl{color:var(--naranja)}
+  .hero .lead{font-size:1.08rem;color:#d9e0e5;max-width:40ch;margin-bottom:1.4rem}
+  .ticks{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem}
+  .ticks li{display:flex;gap:.6rem;align-items:flex-start;font-size:1rem;color:#eef2f4}
+  .ticks .c{color:var(--naranja);font-weight:800;flex:0 0 auto}
+  .hero-stats{display:flex;gap:1.8rem;flex-wrap:wrap}
+  .hstat .n{font-family:"Poppins";font-weight:800;font-size:1.4rem;color:var(--naranja)}
+  .hstat .l{font-size:.78rem;color:#b9c3ca}
+
+  .form-card{background:#fff;color:var(--tinta);border-radius:20px;box-shadow:var(--shadow-lg);padding:26px 24px}
+  .form-card h2{font-size:1.35rem;font-weight:700;line-height:1.15}
+  .form-card .sub{font-size:.9rem;color:var(--gris-txt);margin:.35rem 0 1.1rem}
+  .field{margin-bottom:.8rem}
+  .field label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.3rem;color:#3d474e}
+  .field input,.field select{width:100%;padding:.8rem .9rem;border:1.5px solid var(--gris);border-radius:12px;font-family:inherit;font-size:.95rem;color:var(--tinta);background:#fff;transition:.15s border-color,.15s box-shadow}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(229,115,53,.15)}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .field.two>div{min-width:0}
+  .consent{display:flex;gap:.5rem;align-items:flex-start;font-size:.76rem;color:var(--gris-txt);margin:.5rem 0 1rem}
+  .consent input{margin-top:3px}
+  .form-note{font-size:.74rem;color:var(--gris-txt);text-align:center;margin-top:.7rem}
+  .form-note b{color:var(--tinta)}
+  .badge-secure{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;color:var(--ok);font-weight:600;margin-top:.4rem}
+  .err{color:#c0392b;font-size:.74rem;margin-top:.2rem;display:none}
+  .field.invalid input,.field.invalid select{border-color:#c0392b}
+  .field.invalid .err{display:block}
+
+  .success{display:none;text-align:center;padding:14px 4px}
+  .success .ok-ic{width:66px;height:66px;border-radius:50%;background:rgba(46,158,107,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .success h2{font-size:1.35rem;margin-bottom:.4rem}
+  .success p{color:var(--gris-txt);font-size:.95rem;margin-bottom:1rem}
+
+  .trust{background:var(--crema);padding:22px 0}
+  .trust .row{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;font-size:.86rem;color:var(--gris-txt);font-weight:600}
+  .trust .row b{color:var(--tinta)}
+  .trust .dot{width:5px;height:5px;border-radius:50%;background:var(--naranja)}
+
+  .sec{padding:60px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .sec-head h2{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin:.4rem 0 .5rem}
+  .sec-head p{color:var(--gris-txt)}
+  .benes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bene{background:#fff;border:1px solid var(--gris);border-radius:16px;padding:24px}
+  .bene .ico{width:46px;height:46px;border-radius:12px;background:var(--crema);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .bene h3{font-size:1.05rem;margin-bottom:.35rem}
+  .bene p{font-size:.9rem;color:var(--gris-txt)}
+
+  /* qué NO exige (tranquiliza a la directiva) */
+  .noreq{background:var(--tinta);color:#fff;border-radius:20px;padding:34px}
+  .noreq h3{font-size:1.3rem;margin-bottom:16px}
+  .noreq ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .noreq li{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:#e7edf0}
+  .noreq .c{color:var(--naranja);font-weight:800;flex:0 0 auto}
+  @media(max-width:560px){.noreq ul{grid-template-columns:1fr}}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+  .step{position:relative;padding:22px;background:var(--crema);border-radius:16px}
+  .step .n{counter-increment:s;font-family:"Poppins";font-weight:800;font-size:1.8rem;color:var(--naranja);line-height:1}
+  .step .n::before{content:counter(s)}
+  .step h3{font-size:.98rem;margin:.4rem 0 .3rem}
+  .step p{font-size:.85rem;color:var(--gris-txt)}
+  @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+
+  .quote-band{background:var(--marron);color:#fff;padding:52px 0}
+  .quote-band .q{max-width:720px;margin:0 auto;text-align:center}
+  .quote-band blockquote{font-family:"Poppins";font-weight:600;font-size:1.4rem;line-height:1.4;letter-spacing:-.01em}
+  .quote-band .who{margin-top:16px;color:#c9bfb8;font-size:.9rem}
+  .quote-band .who b{color:#fff}
+
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--gris);border-radius:14px;padding:0 18px;margin-bottom:10px;background:#fff}
+  details summary{cursor:pointer;list-style:none;padding:16px 0;font-family:"Poppins";font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--naranja);font-size:1.4rem;font-weight:700;flex:0 0 auto}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 16px;color:var(--gris-txt);font-size:.93rem}
+
+  .final{background:linear-gradient(120deg,var(--naranja),#f2934f);color:#fff;text-align:center;padding:60px 22px}
+  .final h2{font-size:2rem;font-weight:800;margin-bottom:.5rem}
+  .final p{opacity:.96;max-width:48ch;margin:0 auto 1.4rem}
+  .final .btn{display:inline-flex;width:auto;background:#fff;color:var(--naranja);padding:1rem 2rem}
+  .final .btn:hover{background:#fff8f3;transform:translateY(-2px)}
+
+  footer{background:var(--tinta);color:#8f9aa1;padding:26px 0;font-size:.82rem}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+  footer .wm{color:#fff;font-size:1rem}
+  .foot-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+  .foot-badges span{background:rgba(255,255,255,.08);padding:.25rem .6rem;border-radius:var(--rp);font-size:.72rem}
+
+  .mock-note{background:#fff8f3;border:1px dashed var(--naranja);color:#8a4a1e;font-size:.8rem;text-align:center;padding:.55rem;border-radius:9px;margin:12px auto 0;max-width:var(--maxw)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:.55s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;padding:44px 0 52px}
+    .hero h1{font-size:2.3rem}
+    .benes{grid-template-columns:1fr}
+    .quote-band blockquote{font-size:1.2rem}
+  }
+  @media(max-width:560px){.sec{padding:46px 0}.field.two{grid-template-columns:1fr}.hero .watermark{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="iso" viewBox="0 0 100 100">
+   <path d="M50 4C29 4 12 21 12 42c0 26 30 50 36 54 1 .7 3 .7 4 0 6-4 36-28 36-54C88 21 71 4 50 4Z" fill="currentColor"/>
+   <circle cx="50" cy="42" r="26" fill="#fff"/>
+   <g fill="currentColor" transform="rotate(38 50 42)">
+     <rect x="36" y="30" width="20" height="12" rx="2.5"/><rect x="41" y="41" width="4.5" height="20" rx="2"/>
+     <rect x="33" y="34" width="4" height="4.5" rx="1.2"/><rect x="55" y="34" width="4" height="4.5" rx="1.2"/>
+   </g>
+ </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap row">
+    <div class="logo"><svg class="iso" style="color:var(--tinta)"><use href="#iso"/></svg><span class="wm">AppBogadoEC</span></div>
+    <div class="trust-mini">Cooperación institucional · sin costo para el colegio</div>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Convenio institucional · Colegios de abogados</span>
+      <h1>Moderniza a tus agremiados, <span class="hl">sin costo para el colegio</span></h1>
+      <p class="lead">Un convenio de cooperación que entrega a los profesionales de tu colegio una plataforma para captar clientes, operar su despacho y cumplir ante el SRI — con beneficios exclusivos y sin ninguna obligación económica para la institución.</p>
+      <ul class="ticks">
+        <li><span class="c">✓</span> Cupón institucional exclusivo para tus agremiados</li>
+        <li><span class="c">✓</span> Capacitación certificada gratuita (SRI, FirmaEC, LOPDP)</li>
+        <li><span class="c">✓</span> Insignia de “profesional verificado” para el gremio</li>
+        <li><span class="c">✓</span> Co-branding institucional y reporte de adopción</li>
+      </ul>
+      <div class="hero-stats">
+        <div class="hstat"><div class="n">USD 0</div><div class="l">costo para el colegio</div></div>
+        <div class="hstat"><div class="n">Sin exclusividad</div><div class="l">tu colegio conserva su libertad</div></div>
+        <div class="hstat"><div class="n">LOPDP</div><div class="l">datos de agremiados protegidos</div></div>
+      </div>
+    </div>
+
+    <div class="form-card" id="form-box" data-ab-formbox>
+      <form id="lead-form" data-ab-form="convenio" novalidate>
+        <h2>Solicita una reunión</h2>
+        <p class="sub">Presentamos el convenio a tu directorio, con demostración en vivo. 45 minutos.</p>
+
+        <div class="field" id="f-nombre">
+          <label for="nombre">Nombre y cargo</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej. Presidente / Secretario del Colegio" required>
+          <div class="err">Ingresa tu nombre y cargo.</div>
+        </div>
+
+        <div class="field" id="f-colegio">
+          <label for="colegio">Colegio o institución</label>
+          <input id="colegio" name="colegio" type="text" placeholder="Ej. Colegio de Abogados de [Provincia]" required>
+          <div class="err">Indica tu institución.</div>
+        </div>
+
+        <div class="field two">
+          <div id="f-email">
+            <label for="email">Correo institucional</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="contacto@colegio.org" required>
+            <div class="err">Ingresa un correo válido.</div>
+          </div>
+          <div id="f-tel">
+            <label for="tel">Teléfono / WhatsApp</label>
+            <input id="tel" name="tel" type="tel" inputmode="numeric" placeholder="09XXXXXXXX" required>
+            <div class="err">Ingresa un número válido.</div>
+          </div>
+        </div>
+
+        <div class="field" id="f-prov">
+          <label for="provincia">Provincia</label>
+          <select id="provincia" name="provincia" required>
+            <option value="" selected disabled>Selecciona</option>
+            <option>Guayas</option><option>Pichincha</option><option>Azuay</option><option>El Oro</option>
+            <option>Manabí</option><option>Tungurahua</option><option>Loja</option><option>Los Ríos</option>
+            <option>Imbabura</option><option>Federación Nacional</option><option>Otra</option>
+          </select>
+          <div class="err">Selecciona tu provincia.</div>
+        </div>
+
+        <label class="consent"><input type="checkbox" id="consent" required>
+          Acepto ser contactado para coordinar la reunión; los datos se tratan conforme a la LOPDP.</label>
+
+        <button type="submit" class="btn btn-primary">Agendar reunión →</button>
+        <div class="badge-secure">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3Z"/></svg>
+          Cooperación institucional · sin costo ni exclusividad
+        </div>
+        <p class="form-note">¿Prefieres el documento? <b>Descarga la propuesta (PDF)</b></p>
+      </form>
+
+      <div class="success" id="success" data-ab-success>
+        <div class="ok-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2>¡Solicitud recibida!</h2>
+        <p>Un representante institucional de AppBogado contactará a tu colegio para coordinar la reunión de presentación y compartir la propuesta de convenio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<p class="mock-note">Landing de campaña · público CONVENIOS (directivas de colegios) · Mockup de propuesta · conectar al backend de leads y al píxel de conversión.</p>
+
+<div class="trust">
+  <div class="wrap row">
+    <span><b>24</b> colegios provinciales</span><span class="dot"></span>
+    <span><b>127.000+</b> abogados en el país</span><span class="dot"></span>
+    <span><b>Cooperación</b> académica</span><span class="dot"></span>
+    <span><b>Sin costo</b> para el gremio</span>
+  </div>
+</div>
+
+<!-- QUÉ ENTREGA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Qué entrega el convenio</span>
+      <h2>Un beneficio real y medible para tus agremiados</h2>
+      <p>Convertimos la legitimidad del colegio en una herramienta concreta para el ejercicio profesional.</p>
+    </div>
+    <div class="benes reveal">
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E57335" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
+        <h3>Cupón institucional</h3>
+        <p>Beneficio exclusivo y trazable para agremiados activos: meses bonificados y tarifa preferente, sin alterar el precio de lista.</p>
+      </div>
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E2A32" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Capacitación certificada</h3>
+        <p>Talleres gratuitos de facturación SRI, firma FirmaEC, plazos y LOPDP, con certificado co-firmado por el colegio.</p>
+      </div>
+      <div class="bene">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E57335" stroke-width="2"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Insignia de verificado</h3>
+        <p>Tus agremiados obtienen la distinción de “profesional verificado” ante el ciudadano en el marketplace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ NO EXIGE (clave para la directiva) -->
+<section class="sec" style="background:var(--crema)">
+  <div class="wrap">
+    <div class="noreq reveal">
+      <h3>Lo que el convenio <span style="color:var(--naranja)">no</span> exige a tu colegio</h3>
+      <ul>
+        <li><span class="c">✓</span> Ningún pago ni aporte económico del colegio o sus agremiados.</li>
+        <li><span class="c">✓</span> Ninguna exclusividad: conservas libertad para otros convenios.</li>
+        <li><span class="c">✓</span> Ninguna entrega de datos de agremiados: la adhesión es voluntaria e individual.</li>
+        <li><span class="c">✓</span> Ninguna responsabilidad sobre la relación entre la plataforma y el agremiado.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PASOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Cómo avanzamos</span><h2>Del primer contacto al lanzamiento</h2></div>
+    <div class="steps reveal">
+      <div class="step"><div class="n"></div><h3>Reunión con el directorio</h3><p>Presentación de 45 minutos con demostración en vivo.</p></div>
+      <div class="step"><div class="n"></div><h3>Sesión para agremiados</h3><p>Práctica abierta en el auditorio del colegio.</p></div>
+      <div class="step"><div class="n"></div><h3>Firma del convenio</h3><p>Revisión jurídica y suscripción con firma electrónica.</p></div>
+      <div class="step"><div class="n"></div><h3>Cohorte fundadora</h3><p>Cupón activo y primer ciclo de capacitación agendado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CITA INSTITUCIONAL -->
+<section class="quote-band reveal">
+  <div class="wrap q">
+    <svg class="iso" style="width:40px;height:40px;color:#fff;opacity:.85;margin-bottom:14px"><use href="#iso"/></svg>
+    <blockquote>“La modernización del ejercicio profesional es una responsabilidad del gremio. Este convenio la vuelve un beneficio concreto para cada agremiado, sin costo institucional.”</blockquote>
+    <div class="who">Marco de cooperación institucional · <b>AppBogado</b></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que las directivas preguntan</h2></div>
+    <div class="faq reveal">
+      <details open><summary>¿Tiene algún costo para el colegio?</summary><p>No. El convenio no implica ningún pago, aporte ni obligación de compra para la institución ni para sus agremiados. El beneficio se entrega directamente a los profesionales.</p></details>
+      <details><summary>¿El colegio debe entregar datos de sus agremiados?</summary><p>No. La adhesión al beneficio es voluntaria e individual: cada profesional decide activarlo. El colegio no comparte bases de datos.</p></details>
+      <details><summary>¿Es un convenio exclusivo?</summary><p>No. El colegio conserva plena libertad para suscribir otros convenios tecnológicos. La relación es de cooperación, no de exclusividad.</p></details>
+      <details><summary>¿Cómo se formaliza?</summary><p>Con un convenio marco de 12 meses, renovable, revisado por los equipos jurídicos de ambas partes y suscrito con firma electrónica.</p></details>
+      <details><summary>¿Qué gana el agremiado?</summary><p>Cupón institucional con meses bonificados, capacitación certificada gratuita, insignia de profesional verificado y soporte prioritario.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Lleva la modernización a tu colegio</h2>
+  <p>Coordina una reunión con tu directorio. Sin costo, sin exclusividad, con beneficio real para tus agremiados.</p>
+  <a href="#top" class="btn">Agendar la reunión →</a>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div class="logo"><svg class="iso" style="color:#fff"><use href="#iso"/></svg><span class="wm">AppBogadoEC</span></div>
+    <div class="foot-badges"><span>Cooperación institucional</span><span>LOPDP</span><span>Sin costo</span><span>app.appbogadoec.com</span></div>
+    <span>© 2026 CODEPLUS S.A.</span>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const utm={};
+  new URLSearchParams(location.search).forEach((v,k)=>{ if(k.startsWith('utm_')||k==='fbclid') utm[k]=v; });
+
+  const form=document.getElementById('lead-form');
+  function mark(id,ok){ document.getElementById(id).classList.toggle('invalid',!ok); return ok; }
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('nombre').value.trim();
+    const col=document.getElementById('colegio').value.trim();
+    const em=document.getElementById('email').value.trim();
+    const tel=document.getElementById('tel').value.trim();
+    const prov=document.getElementById('provincia').value;
+    const cons=document.getElementById('consent').checked;
+    let ok=true;
+    ok&=mark('f-nombre',n.length>=3);
+    ok&=mark('f-colegio',col.length>=3);
+    ok&=mark('f-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em));
+    ok&=mark('f-tel',tel.replace(/\D/g,'').length>=9);
+    ok&=mark('f-prov',!!prov);
+    if(!cons) ok=false;
+    if(!ok) return;
+    const payload={tipo:'convenio',nombre:n,colegio:col,email:em,tel,provincia:prov,...utm};
+    // TODO backend: POST /api/leads  +  window.fbq && fbq('track','Lead',{content_category:'convenio'});
+    console.log('LEAD CONVENIO →',payload);
+    form.style.display='none';
+    document.getElementById('success').style.display='block';
+    document.getElementById('form-box').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('tel').addEventListener('input',e=>{ e.target.value=e.target.value.replace(/[^\d]/g,''); });
+</script>
+</body>
+</html>

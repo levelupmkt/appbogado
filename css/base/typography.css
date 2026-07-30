@@ -1,0 +1,170 @@
+/* ==========================================================================
+   BASE · TIPOGRAFÍA
+   --------------------------------------------------------------------------
+   Escala fluida con clamp(): un solo valor cubre de 320px a 1440px+
+   sin media queries. Titulares en Britanica, cuerpo en Urbanist.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Titulares
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+
+h1,
+.h1 {
+  font-size: var(--typography-h1-size);
+  font-weight: var(--typography-h1-weight);
+  line-height: var(--typography-h1-line-height);
+  letter-spacing: var(--typography-h1-tracking);
+}
+
+h2,
+.h2 {
+  font-size: var(--typography-h2-size);
+  font-weight: var(--typography-h2-weight);
+  line-height: var(--typography-h2-line-height);
+  letter-spacing: var(--typography-h2-tracking);
+}
+
+h3,
+.h3 {
+  font-size: var(--typography-h3-size);
+  font-weight: var(--typography-h3-weight);
+  line-height: var(--typography-h3-line-height);
+  letter-spacing: var(--typography-h3-tracking);
+}
+
+h4,
+.h4 {
+  font-size: var(--typography-h4-size);
+  font-weight: var(--typography-h4-weight);
+  line-height: var(--typography-h4-line-height);
+  letter-spacing: var(--typography-h4-tracking);
+}
+
+h5,
+.h5 {
+  font-size: var(--typography-h5-size);
+  font-weight: var(--typography-h5-weight);
+  line-height: var(--typography-h5-line-height);
+}
+
+/* Titular de máxima jerarquía (hero) */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--typography-display-size);
+  font-weight: var(--typography-display-weight);
+  line-height: var(--typography-display-line-height);
+  letter-spacing: var(--typography-display-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Cuerpo
+   -------------------------------------------------------------------------- */
+p {
+  font-size: var(--typography-body-size);
+  line-height: var(--typography-body-line-height);
+}
+
+.lead {
+  font-size: var(--typography-lead-size);
+  line-height: var(--typography-lead-line-height);
+  color: var(--text-secondary);
+}
+
+.text-small {
+  font-size: var(--typography-small-size);
+}
+
+.text-caption {
+  font-size: var(--typography-caption-size);
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+strong,
+b,
+.strong {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+}
+
+/* --------------------------------------------------------------------------
+   Antetítulo (eyebrow)
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--eyebrow-color);
+}
+
+/* --------------------------------------------------------------------------
+   Realce dentro de un titular
+   -------------------------------------------------------------------------- */
+.highlight {
+  color: var(--hero-title-highlight);
+}
+
+/* --------------------------------------------------------------------------
+   Enlaces de contenido
+   -------------------------------------------------------------------------- */
+a {
+  color: var(--link-color);
+  transition: color var(--transition-control);
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+.link {
+  color: var(--link-accent);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.link:hover {
+  color: var(--link-accent-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Medida de línea legible
+   -------------------------------------------------------------------------- */
+.measure-narrow {
+  max-width: var(--measure-narrow);
+}
+
+.measure {
+  max-width: var(--measure-base);
+}
+
+.measure-wide {
+  max-width: var(--measure-wide);
+}

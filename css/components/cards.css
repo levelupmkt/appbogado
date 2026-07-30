@@ -1,0 +1,250 @@
+/* ==========================================================================
+   COMPONENTE · TARJETAS
+   --------------------------------------------------------------------------
+   Regla 02-BRAND.md: las 4 cards de "Todo tu despacho" usan fondo blue brand
+   (.card--brand). El resto se apoya en canvas o en la superficie estratégica.
+   ========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border: var(--card-border-width) solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--card-transition),
+              box-shadow var(--card-transition),
+              border-color var(--card-transition);
+}
+
+.card--interactive:hover,
+.card--interactive:focus-within {
+  transform: translateY(var(--card-lift));
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card--lg {
+  padding: var(--card-padding-lg);
+}
+
+.card__title {
+  font-size: var(--typography-h4-size);
+  font-weight: var(--font-weight-bold);
+}
+
+.card__text {
+  color: var(--text-secondary);
+  font-size: var(--typography-body-size);
+}
+
+.card__footer {
+  margin-block-start: auto;
+  padding-block-start: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Card de marca · sección "Todo tu despacho" (regla 02-BRAND.md)
+   El contexto oscuro de sus hijos lo aplica tokens/contexts.css.
+   -------------------------------------------------------------------------- */
+.card--brand {
+  background-color: var(--card-brand-bg);
+  color: var(--card-brand-text);
+  border-color: var(--card-brand-border);
+}
+
+.card--brand .card__index {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+  font-size: var(--typography-caption-size);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--card-brand-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Card sobre superficie estratégica
+   -------------------------------------------------------------------------- */
+.card--strategic {
+  background-color: var(--card-strategic-bg);
+  color: var(--card-strategic-text);
+  border-color: var(--card-strategic-border);
+}
+
+/* Card plana sobre fondo estratégico: invierte a canvas para contraste */
+.card--plain {
+  background-color: var(--surface-canvas);
+  border-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Card destacada (plan más popular)
+   -------------------------------------------------------------------------- */
+.card--featured {
+  position: relative;
+  border-color: var(--card-featured-border);
+  border-width: var(--card-featured-border-width);
+  box-shadow: var(--card-featured-shadow);
+}
+
+.card__badge {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--space-1) var(--space-4);
+  background-color: var(--card-badge-bg);
+  color: var(--card-badge-text);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--card-badge-size);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Card de plan / precio
+   -------------------------------------------------------------------------- */
+.card--plan {
+  height: 100%;
+}
+
+.card__price {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+  font-size: var(--typography-h2-size);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.card__price small {
+  font-family: var(--font-body);
+  font-size: var(--typography-small-size);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-muted);
+}
+
+.card__eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--typography-caption-size);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Card de tier (Documentos IA): precio a la izquierda, detalle a la derecha
+   -------------------------------------------------------------------------- */
+.tier {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.tier__price {
+  flex: 0 0 auto;
+  min-width: 4.5em;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+  font-size: var(--typography-h4-size);
+  line-height: 1;
+  color: var(--text-accent);
+}
+
+@media (max-width: 479px) {
+  .tier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Card de perfil (abogado)
+   -------------------------------------------------------------------------- */
+.card--profile .card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card__avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-circle);
+  background-image: var(--surface-brand-gradient);
+  color: var(--text-on-brand);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  overflow: hidden;
+}
+
+.card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--typography-small-size);
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Card con imagen superior
+   -------------------------------------------------------------------------- */
+.card--media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--media .card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+}
+
+.card--media img {
+  width: 100%;
+  aspect-ratio: var(--media-ratio-wide);
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Banda CTA
+   -------------------------------------------------------------------------- */
+.cta-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--cta-band-padding);
+  background-color: var(--cta-band-bg);
+  color: var(--cta-band-text);
+  border-radius: var(--cta-band-radius);
+  text-align: center;
+}
+
+.cta-band--gradient {
+  background-color: transparent;
+  background-image: var(--surface-brand-gradient);
+}
+
+.cta-band--accent {
+  background-color: var(--surface-accent);
+}
+
+.cta-band p {
+  max-width: var(--measure-base);
+  color: var(--text-secondary);
+}

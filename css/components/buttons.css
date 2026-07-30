@@ -1,0 +1,165 @@
+/* ==========================================================================
+   COMPONENTE · BOTONES
+   --------------------------------------------------------------------------
+   Reglas 02-BRAND.md:
+   · CTA principal      → naranja brand sobre canvas, blue brand y gradiente
+   · Botón inverso      → neutral 100, hover naranja claro (#FFB7A0)
+   · Botón secundario   → contorno, hover naranja
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  min-height: var(--button-min-height);
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  border: var(--button-border-width) solid transparent;
+  border-radius: var(--button-radius);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--button-transition),
+              border-color var(--button-transition),
+              color var(--button-transition),
+              transform var(--button-transition),
+              box-shadow var(--button-transition);
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn__icon {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  flex: 0 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Variante primaria · CTA naranja
+   -------------------------------------------------------------------------- */
+.btn--primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  box-shadow: none;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--button-primary-bg-hover);
+  color: var(--button-primary-text);
+}
+
+/* --------------------------------------------------------------------------
+   Variante inversa · blanco sobre naranja o sobre marca
+   -------------------------------------------------------------------------- */
+.btn--inverse {
+  background-color: var(--button-inverse-bg);
+  color: var(--button-inverse-text);
+}
+
+.btn--inverse:hover,
+.btn--inverse:focus-visible {
+  background-color: var(--button-inverse-bg-hover);
+  color: var(--button-inverse-text-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Variante secundaria · contorno
+   Hereda el contexto (.on-brand cambia sus tokens automáticamente)
+   -------------------------------------------------------------------------- */
+.btn--secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border-color: var(--button-secondary-border);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  color: var(--button-secondary-text-hover);
+  border-color: var(--button-secondary-border-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Variante fantasma · sin contorno
+   -------------------------------------------------------------------------- */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--text-primary);
+  padding-inline: var(--space-3);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  color: var(--link-color-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Tamaños
+   -------------------------------------------------------------------------- */
+.btn--sm {
+  min-height: auto;
+  padding: var(--button-padding-block-sm) var(--button-padding-inline-sm);
+  font-size: var(--button-font-size-sm);
+}
+
+.btn--lg {
+  padding: var(--button-padding-block-lg) var(--button-padding-inline-lg);
+  font-size: var(--button-font-size-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Modificadores de ancho
+   -------------------------------------------------------------------------- */
+.btn--block {
+  width: 100%;
+}
+
+/* En móvil los CTA ocupan el ancho completo para facilitar el toque */
+@media (max-width: 479px) {
+  .btn--block-mobile {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Estados
+   -------------------------------------------------------------------------- */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  background-color: var(--button-disabled-bg);
+  color: var(--button-disabled-text);
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Grupo de botones
+   -------------------------------------------------------------------------- */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.btn-group--center {
+  justify-content: center;
+}
+
+@media (max-width: 479px) {
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,513 @@
+/* ==========================================================================
+   COMPONENTE · FEATURES, ICONOS Y LISTAS DE BENEFICIOS
+   --------------------------------------------------------------------------
+   Bloques de beneficios que consumen los SVG de /public/icons.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Feature: icono + título + texto
+   -------------------------------------------------------------------------- */
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--feature-gap);
+}
+
+.feature__title {
+  font-family: var(--font-display);
+  font-size: var(--feature-title-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--feature-title-color);
+}
+
+.feature__text {
+  font-size: var(--feature-text-size);
+  color: var(--feature-text-color);
+}
+
+.feature__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Variante horizontal: icono a la izquierda */
+.feature--inline {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+/* Variante centrada */
+.feature--center {
+  align-items: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Contenedor de icono
+   -------------------------------------------------------------------------- */
+.icon-badge {
+  display: grid;
+  place-items: center;
+  width: var(--icon-badge-size);
+  height: var(--icon-badge-size);
+  flex: 0 0 auto;
+  background-color: var(--icon-badge-bg);
+  border-radius: var(--icon-badge-radius);
+}
+
+.icon-badge--sm {
+  width: var(--icon-badge-size-sm);
+  height: var(--icon-badge-size-sm);
+}
+
+.icon-badge--circle {
+  border-radius: var(--radius-circle);
+}
+
+/* Insignia de acento: admite un icono o un carácter (✓) */
+.icon-badge--accent {
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-400);
+  line-height: 1;
+}
+
+.icon-badge img,
+.icon-badge svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.icon-badge--sm img,
+.icon-badge--sm svg {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+}
+
+/* Icono suelto, sin contenedor */
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  flex: 0 0 auto;
+}
+
+.icon--lg {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Color de los iconos de /public/icons
+   --------------------------------------------------------------------------
+   Los SVG entregados tienen el trazo en negro. Al consumirse como <img> no
+   heredan currentColor, así que se recolorean con filter:
+     · sobre fondo claro  → se dejan en negro (= color de texto neutral 900)
+     · sobre fondo oscuro → se invierten a blanco
+   Quién decide: el token --icon-filter de tokens/contexts.css.
+   -------------------------------------------------------------------------- */
+.icon,
+.icon-badge img,
+.site-footer__social img {
+  filter: var(--icon-filter, none);
+}
+
+/* --------------------------------------------------------------------------
+   Lista de comprobación
+   -------------------------------------------------------------------------- */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+  list-style: none;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--typography-body-size);
+  color: var(--text-secondary);
+}
+
+.check-list__mark {
+  flex: 0 0 auto;
+  margin-block-start: 0.15em;
+  color: var(--list-check-color);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+/* Lista compacta para tarjetas de plan */
+.check-list--compact li {
+  font-size: var(--typography-small-size);
+  gap: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Estadísticas
+   -------------------------------------------------------------------------- */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+/* Variante responsive de estadísticas */
+.stats--horizontal {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--space-0);
+  width: 100%;
+  margin: var(--space-0);
+  padding: var(--space-0);
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stats--horizontal .stat {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding-block: var(--space-3);
+  padding-inline: var(--space-6);
+  text-align: center;
+}
+
+/* Divider vertical en escritorio */
+.stats--horizontal .stat:not(:last-child) {
+  border-inline-end: var(--border-width-thick) solid var(--border-accent);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+  font-size: var(--typography-h3-size);
+  line-height: 1.1;
+  color: var(--hero-stat-value-color);
+}
+
+.stat__label {
+  max-width: 18ch;
+  font-size: var(--typography-small-size);
+  color: var(--text-secondary);
+}
+
+/* Valores de las etiquetas <dt> */
+.stats--horizontal .stat__value {
+  width: 100%;
+  margin: var(--space-0);
+  color: var(--text-accent);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Descripciones de las etiquetas <dd> */
+.stats--horizontal .stat__label {
+  width: 100%;
+  max-width: none;
+  margin-block-start: var(--space-1);
+  margin-block-end: var(--space-0);
+  margin-inline: auto;
+  color: var(--text-primary);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   DOCUMENTOS IA · niveles
+   -------------------------------------------------------------------------- */
+
+.documents-tier {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+
+  width: 100%;
+  min-width: 0;
+  padding-block: var(--space-6);
+
+  color: var(--text-on-accent);
+}
+
+/* Divider blanco entre artículos, excepto el último */
+.documents-tier:not(:last-child) {
+  border-block-end:
+    var(--border-width-thin)
+    solid
+    var(--color-neutral-100);
+}
+
+/* Precio */
+.documents-tier .tier__price {
+  color: var(--text-on-accent);
+  font-family: var(--font-display);
+  font-size: var(--typography-h4-size);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+}
+
+/* Título del artículo */
+.documents-tier h3 {
+  color: var(--text-on-accent);
+}
+
+/* Párrafo del artículo */
+.documents-tier p {
+  color: var(--text-on-accent);
+  font-size: var(--typography-body-size);
+  line-height: var(--typography-body-line-height);
+}
+
+/* --------------------------------------------------------------------------
+   Pasos numerados
+   -------------------------------------------------------------------------- */
+.steps {
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  counter-increment: step;
+}
+
+.step__number {
+  display: grid;
+  place-items: center;
+  width: var(--icon-badge-size-sm);
+  height: var(--icon-badge-size-sm);
+  border-radius: var(--radius-circle);
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+}
+
+.step__number::before {
+  content: counter(step, decimal-leading-zero);
+}
+
+/* --------------------------------------------------------------------------
+   Píldoras / filtros
+   -------------------------------------------------------------------------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--pill-padding-block) var(--pill-padding-inline);
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  border: var(--border-width-thin) solid var(--pill-border);
+  border-radius: var(--pill-radius);
+  font-size: var(--pill-font-size);
+  cursor: pointer;
+  transition: background-color var(--transition-control),
+              color var(--transition-control),
+              border-color var(--transition-control);
+}
+
+.pill:hover {
+  border-color: var(--border-accent);
+  color: var(--text-accent);
+}
+
+.pill.is-active,
+.pill[aria-pressed="true"] {
+  background-color: var(--pill-bg-active);
+  color: var(--pill-text-active);
+  border-color: var(--pill-border-active);
+}
+
+/* --------------------------------------------------------------------------
+   Etiqueta / distintivo
+   -------------------------------------------------------------------------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: var(--tag-radius);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--tag-font-size);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.tag--solid {
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+}
+
+/* Dentro de una card (flex column) la etiqueta no debe estirarse */
+.card > .tag {
+  align-self: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   Comparativa · "Lo que no somos" / "Lo que somos"
+   --------------------------------------------------------------------------
+   Los dos paneles comparten fondo y texto en neutral 900. Lo que los
+   diferencia es el contenedor del signo:
+     · negativo → contenedor neutral 500 con el signo en neutral 900
+     · positivo → contenedor naranja de marca con el signo en neutral 100
+   -------------------------------------------------------------------------- */
+.compare-panel {
+  padding: var(--compare-panel-padding);
+  border-radius: var(--compare-panel-radius);
+  background-color: var(--compare-panel-bg);
+}
+
+.compare-panel__title {
+  font-family: var(--font-display);
+  font-size: var(--compare-title-size);
+  font-weight: var(--compare-title-weight);
+  line-height: var(--compare-title-line-height);
+  letter-spacing: var(--compare-title-tracking);
+  color: var(--compare-title-color);
+  margin-block-end: var(--compare-title-margin);
+}
+
+.compare-panel .check-list li {
+  color: var(--compare-text-color);
+  align-items: center;
+}
+
+/* El signo pasa de carácter suelto a contenedor circular */
+.compare-panel .check-list__mark {
+  display: grid;
+  place-items: center;
+  width: var(--compare-mark-size);
+  height: var(--compare-mark-size);
+  border-radius: var(--compare-mark-radius);
+  font-size: var(--compare-mark-font-size);
+  margin-block-start: 0;
+}
+
+.compare-panel--negative .check-list__mark {
+  background-color: var(--compare-mark-negative-bg);
+  color: var(--compare-mark-negative-color);
+}
+
+.compare-panel--positive .check-list__mark {
+  background-color: var(--compare-mark-positive-bg);
+  color: var(--compare-mark-positive-color);
+}
+
+/* --------------------------------------------------------------------------
+   Filas de dato (clave / valor)
+   -------------------------------------------------------------------------- */
+.data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-block-end: var(--border-width-thin) solid var(--border-subtle);
+  font-size: var(--typography-body-size);
+}
+
+.data-row:last-child {
+  border-block-end: none;
+}
+
+.data-row__value {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-accent);
+}
+
+/* ==========================================================================
+   TABLET Y PANTALLAS MEDIANAS · 2 columnas
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .stats--horizontal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats--horizontal .stat {
+    padding-block: var(--space-4);
+    padding-inline: var(--space-4);
+    border-inline-end: none;
+    border-block-end: none;
+  }
+
+  /* Divider vertical entre las columnas */
+  .stats--horizontal .stat:nth-child(odd) {
+    border-inline-end: var(--border-width-thick) solid var(--border-accent);
+  }
+
+  /* Divider horizontal entre las filas */
+  .stats--horizontal .stat:nth-child(-n + 2) {
+    border-block-end: var(--border-width-thick) solid var(--border-accent);
+  }
+
+  .stats--horizontal .stat__value {
+    font-size: var(--font-size-600);
+  }
+
+  .stats--horizontal .stat__label {
+    font-size: var(--typography-small-size);
+  }
+}
+
+/* ==========================================================================
+   MÓVIL · 1 columna
+   ========================================================================== */
+
+@media (max-width: 479px) {
+  .stats--horizontal {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stats--horizontal .stat {
+    padding-block: var(--space-4);
+    padding-inline: var(--space-2);
+    border-inline-end: none;
+    border-block-end: none;
+  }
+
+  /* Divider horizontal entre cada elemento */
+  .stats--horizontal .stat:not(:last-child) {
+    border-inline-end: none;
+    border-block-end: var(--border-width-thick) solid var(--border-accent);
+  }
+
+  .stats--horizontal .stat__value {
+    font-size: var(--font-size-500);
+  }
+
+  .stats--horizontal .stat__label {
+    font-size: var(--font-size-300);
+  }
+}
+
+@media (max-width: 479px) {
+  .documents-tier {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+    padding-block: var(--space-5);
+  }
+
+  .documents-tier .tier__price {
+    white-space: normal;
+  }
+}
